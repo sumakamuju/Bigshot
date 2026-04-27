@@ -2,7 +2,7 @@ package pageObjects;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -18,13 +18,12 @@ public class HomePage extends BasePage{
 	public HomePage(WebDriver driver) {
 		super(driver);
 	}
+	//For Login and register
 	@FindBy(xpath="(//*[@class=\"list-inline m-0\"]//i)[1]")
 	WebElement account;
-			
-
-	@FindBy(xpath="(//*[@id=\"loginMenuItem\"]//a)[1]")// login
+	@FindBy(xpath="//*[@id='loginMenu']/li/a[1]")
 	WebElement linkLogin;
-	@FindBy(xpath="//ul[@id=\"loginMenu\"]//a[2]")// register
+	@FindBy(xpath="//ul[@id='loginMenu']//a[2]")
 	WebElement linkRegister;
 	
 	public void Account() {
@@ -35,10 +34,10 @@ public class HomePage extends BasePage{
 		}
 
 	public void clickLogin() throws InterruptedException {
-		WebElement loginBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@id=\"loginMenuItem\"]//a)[1]")));
-
-		loginBtn.click();
-	   }
+		wait = new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(linkLogin));
+		linkLogin.click();
+	   }  
 	
 	public void	clickRegister() {
 		
@@ -46,8 +45,26 @@ public class HomePage extends BasePage{
 	    WebElement  clickRegister= wait.until(ExpectedConditions.elementToBeClickable(linkRegister));		
 		clickRegister.click();	 
 		}
-
+//shopping links
+	 @FindBy(xpath="//*[@class=\"list-inline mb-0\"]//li[7]")
+	 WebElement linksherwanis;
 	 
+	 public void sherwanis() {
+		 linksherwanis.click();
+	 }
+	 
+	 @FindBy(xpath="//*[@data-productid=\"17\"][@id=\"size-4\"]")
+	 WebElement linkdresssize;
+	 public void dresssize() {
+		 linkdresssize.click();
+	 }
+	 
+	 @FindBy(xpath="//*[@id=\"buyNow17\"]")
+	 WebElement buynow;
+	 
+	 public void selecteddress() {
+		 buynow.click();
+	 }
 	
 	
 	

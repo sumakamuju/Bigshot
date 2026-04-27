@@ -1,0 +1,182 @@
+Feature: User Profile Menu Functionality
+
+	  Background: 
+	    Given User enters the "https://dev.bigshotonline.com/"
+	    When User MouseHover Account
+	    And User click on Login Button
+	    And User enters  valid Mailid as "sridharp@newmeksolutions.com"
+	    And User enters  valid Password as "Sridhar@1993"
+	    And User clicks the SignIn button
+	    When User hovers over the profile icon
+
+	  @TC42
+	  Scenario: Verifies dropdown options under User profile icon
+	    Then User Name should be visible
+	    Then User should see Account Details in the profile dropdown
+	    Then User should see Wishlist in the profile dropdown
+	    Then User should see Orders in the profile dropdown
+	    Then User should see Addresses in the profile dropdown
+	    Then User should see Logout in the profile dropdown
+
+	  @TC43
+	  Scenario: View Account Details via profile
+	    And User clicks on Account Details
+	    Then User should be redirected to the account details page with profile details
+
+	  @TC44
+	  Scenario: Update Profile Details Successfully
+	    And User clicks on Account Details
+	    And User enters Date of Birth "16/03/1993"
+	    And User clicks on the Country ProfileCode dropdown
+	    And User selects the ProfileCode option
+	    And User enter Alternative Mobile Number as "9963655039"
+	    And User uploads  Profile Image
+	    And User clicks on Save button
+	    Then User should see a success message as "Profile updated successfully"
+
+	  @TC45
+	  Scenario: Display error message for unsupported profile image upload format
+	    And User clicks on Account Details
+	    And User enters Date of Birth "16/03/1993"
+	    And User clicks on the Country ProfileCode dropdown
+	    And User selects the ProfileCode option
+	    And User enter Alternative Mobile Number as "9963655039"
+	    And attempts to upload a profile image in an unsupported format (e.g., .doc, .mp4, .mp3)
+	    And User clicks on Save button
+	    Then User should see a error message as "Invalid upload format. Please upload a valid image file."
+
+	  @TC46
+	  Scenario: Discard Profile Changes by Clicking Cancel under Profile Details page in Account details
+	    When User clicks on Account Details
+	    And User has made changes to the profile fields
+	    And User clicks on the Cancel button
+	    Then User should see a confirmation popup with message "Are you sure you want to discard the changes?"
+	    And User confirms to discard the changes
+	    Then All profile fields should revert to their previously saved values
+	    And User should remain on the Account Details page
+
+	  @TC47
+	  Scenario: Verify Cancel button under Profile Details page in Account details
+	    When User clicks on Account Details
+	    And User clicks on the Cancel button
+	    Then User should be redirects to the "Dashboard page".
+
+	  @TC48
+	  Scenario: View Wishlist Details via profile
+	    When User clicks on Wishlist
+	    Then User should be redirected to the Wishlist page
+	    And User should see the list of saved products
+
+	  @TC49
+	  Scenario: View Orders Details via profile
+	    When User clicks on Orders
+	    Then User should be redirected to the Orders page
+	    And User should see a list of past orders
+
+	  @TC50
+	  Scenario: Validate Cancel Button when submitting empty address form
+	    When User clicks on Addresses
+	    Then User should be redirected to the Saved Address page
+	    And User click on add new adderss link.
+	    Then User should be redirected to the Add New Address page
+	    And Click on Cancel Button
+	    Then User should be redirected to the Saved Address page
+
+	  @TC51
+	  Scenario: Validate with Empty Required Fields
+	    When User clicks on Addresses
+	    And User click on add new adderss link.
+	    And Click on Save Button on Add New Address page
+	    Then User sees an error message for email section "Enter Email Address"
+
+	  @TC52
+	  Scenario: Verify email field validation when required fields are partially filled
+	    When User clicks on Addresses
+	    And User click on add new adderss link.
+	    Then User should be redirected to the Add New Address page
+	    And User enters Name as ""
+	    And User clicks on the Country dropdown
+	    And User selects the Country
+	    And User search the State "Tel"
+	    And User select the sate
+	    And User enters City as "Rajeevnagar"
+	    And User enters Pincode as "500045"
+	    And User enters Address as "102/b"
+	    And User clicks on the Country Code
+	    And User selects the Country Code
+	    And User enters Phone No as "9951129168"
+	    And User selects the Save Adderss As Radio button
+	    And User selects the Make this my deafult address
+	    And Click on Save Button on Add New Address page
+	    Then User sees an error message for email section "Enter Email Address"
+
+	  @TC53
+	  Scenario: Save a new address successfully
+	    When User clicks on Addresses
+	    And User click on add new adderss link.
+	    Then User should be redirected to the Add New Address page
+	    And User enters Name as "srinu"
+	    And User clicks on the Country dropdown
+	    And User selects the Country
+	    And User search the State "Te"
+	    And User select the sate
+	    And User enters City as "Rajeevnagar"
+	    And User enters Pincode as "500046"
+	    And User enters Address as "102/b"
+	    And User clicks on the Country Code
+	    And User selects the Country Code
+	    And User enters Phone No as "9951829169"
+	    And User selects the Save Adderss As Radio button
+	    And User selects the Make this my deafult address
+	    And Click on Save Button on Add New Address page
+	    Then User sees an success message "Your address has been added successfully."
+	    Then Click on Ok Button
+
+	  @TC54
+	  Scenario: Verify Address Details via profile
+	    When User clicks on Addresses
+	    Then User should be redirected to the Saved Address page
+	    And User should see a list of saved shipping addresses
+
+	  @TC55
+	  Scenario: Edit an address and cancel without saving
+	    When User clicks on Addresses
+	    And User clicks on the Edit button for an existing address
+	    Then User should be redirected to the Edit Address page
+	    And User  Update Name as "ramyaaa"
+	    And Click on Cancel Button
+	    Then User should be redirected to the Saved Address page
+	    And the address details should remain unchanged
+
+	  @TC56
+	  Scenario: Edit an existing saved address
+	    When User clicks on Addresses
+	    And User clicks on the Edit button for an existing address
+	    Then User should be redirected to the Edit Address page
+	    And User  Update Name as "nareshdubbakas"
+	    And Click on Save Button on Add New Address page
+	    Then User sees an update success message "Your address has been updated."
+	    Then Click on Ok Button
+	    And Edited address should in be address list
+
+	  @TC57
+	  Scenario: Cancel address removal from confirmation popup
+	    When User clicks on Addresses
+	    And User clicks on the Remove button for an existing address
+	    Then a confirmation popup should appear with message "Are you sure you want to remove this address?"
+	    When User cancels deletion by clicking "No"
+	    And the address should remain in the address list
+
+	  @TC58
+	  Scenario: Remove an existing saved address
+	    When User clicks on Addresses
+	    And User clicks on the Remove button for an existing address
+	    Then a confirmation popup should appear with message "Are you sure you want to remove this address?"
+	    When User confirms deletion by clicking "Yes"
+	    And User should see a success message "Your address has been removed."
+	    Then Click on Ok Button on Conformation Pop up
+
+	  @TC59
+	  Scenario: Logout from Profile Menu Details via profile
+	    When User clicks on Logout button
+	    And User hovers over the profile icon

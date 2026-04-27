@@ -8,12 +8,13 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
+
 import org.testng.annotations.BeforeClass;
 
 public class BaseClass {
 	public static WebDriver driver;
 	public Properties p;
+	
 	
 	@BeforeClass
 	public void setup() throws IOException {
@@ -37,7 +38,9 @@ public class BaseClass {
 		        driver.get(p.getProperty("url"));
 		        
 		    }
-
+	
+	
+	
 
 	
 	
