@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -39,6 +40,20 @@ public class BaseClass {
 		        
 		    }
 	
+	public String randomString() {
+		String generatedString=RandomStringUtils.secure().nextAlphabetic(10);
+		return generatedString;
+	}
+	public String randomNumeric() {
+		String generatedNumeric=RandomStringUtils.secure().nextNumeric(10);
+		return generatedNumeric;
+	}
+	public String randomAlphaNumeric() {
+		String generatedString=RandomStringUtils.secure().nextAlphabetic(6); 
+		String generatedNumeric=RandomStringUtils.secure().nextNumeric(6);
+		return(generatedString+generatedNumeric);
+		
+	}
 	
 	
 
