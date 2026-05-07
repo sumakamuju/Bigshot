@@ -14,19 +14,20 @@ public class TC003_LoginTest extends BaseClass{
 		hp.clickLogin();
 		
 		LoginPage lp=new LoginPage(driver);
-		lp.setEmail(p.getProperty("email"));
-		lp.setPassword(p.getProperty("password"));
-		lp.btnSignin();  
-		hp.Account();
+//		lp.setEmail(p.getProperty("email"));
+//		lp.setPassword(p.getProperty("password"));
+//		lp.btnSignin();  
+//		hp.Account();
 //TO CHECK ACCOUNT DETAILS BUTTON
-	
+/*		logger.info("Checking account name as per the registration");
 		lp.account_name();
 //TO CHECK USERNAME
 		String username=lp.account_name();
 		Assert.assertEquals(username, "palivelasridhar1","username mismatch");	
 		
 //PROFILE PAGE TEST	
-		lp.account_details();
+		logger.info("Updating profile page");
+  		lp.account_details();
 		lp.profile_name();
 		lp.executescript();
 		lp.txtfirst_name();
@@ -37,17 +38,19 @@ public class TC003_LoginTest extends BaseClass{
 		lp.countrycode_selection(); 
 		lp.save();
 	//	lp.cancel(); 
-	
+		logger.info("Acconut updation done and saved");
 //WISHLIST OPTIONS 
 		//should create specific pages for the dresses
+		logger.info("Selecting dresses and size");
 		lp.clicksuits();
 		lp.executescript();
-		lp.selectsuit();
+		lp.selectsuit(); 
 		lp.clickjodhpuri();
 		lp.selectjodhpuri3();
 		lp.selectjodhpiri5();
 		lp.clickkurtapajamas();
 		lp.selectkurta(); 
+		logger.info("Checking details in wishlist");
 	hp.Account();
 		lp.wishlist();
 		lp.wishlist_count();
@@ -56,19 +59,20 @@ public class TC003_LoginTest extends BaseClass{
 		Assert.assertEquals(actualproduct, "Formal 3-piece suit", "product not selected"); 
 		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 // MOVE TO CART FROM WISHLIST
-		
+		logger.info("Selecting dresses and moving to cart");
 		lp.executescript();
 		lp.product1_size();
 		lp.movetocart_1(); 
 		lp.wishlist();
 		lp.product3_size();
-		lp.movetocart_2(); 
+		lp.movetocart_2(); */
 //		hp.Account();
 //		lp.orders(); //PAGE NOT DISPLAYING ORDERS- WEBSITE PROBLEM   
 		
 //ADDRESS PAGE
-	hp.Account();	
-		lp.address_page();
+	//	logger.info("Entering valid address details for shipping");
+//	hp.Account();	
+/*		lp.address_page();
 		lp.click_to_add_addrs();
 		lp.name_in_addrs();
 		lp.country_in_addrs();  
@@ -81,8 +85,35 @@ public class TC003_LoginTest extends BaseClass{
 		lp.addrs_type();
 		lp.default_addrs();
 		lp.save_addrs();
-		lp.ok_button();
+		lp.ok_button();*/
 	//	lp.cancel_given_details();
+	//	lp.logout();
+	//	logger.info("Checking all the sub-links of account link is completed");
+		
+//1. SUBMITTING EMPTY FIELDS FOR LOGIN		
+/*		lp.set_email_empty("               ");
+		lp.set_pswd_empty("         ");
+		lp.click_submit();
+	String err_email_msg=lp.error_mail_msg();
+	String pswd=lp.error_pswd_msg();
+	Assert.assertEquals(err_email_msg, "Please enter a valid email.");
+	Assert.assertEquals(pswd, "Please enter a valid password.");   */
+
+//2.ENTERING INVALID LOGIN CREDENTIALS
+/*	lp.set_invalid_email("sumakamuju09@gmail.com");
+	lp.setPassword("suma&sunny1508");
+	lp.click_submit();
+	String invalid_mail_msg=lp.invalid_mail_msg();
+	Assert.assertEquals(invalid_mail_msg, "User not found. Please register first.");*/
+	lp.setEmail("sumakamuju109@gmail.com");
+	lp.set_invalid_pwsd("sumasunny");
+	lp.click_submit();
+	Assert.assertEquals(lp.invalid_pswd_msg(),"Your password is invalid. Please try again.");
+	
+	
+	
+	
+	
 	
 	} 
 		

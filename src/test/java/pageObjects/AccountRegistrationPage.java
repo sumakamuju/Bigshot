@@ -30,7 +30,7 @@ public class AccountRegistrationPage extends BasePage{
 	WebElement slctcountryoption;
 	@FindBy(xpath="//*[@id=\"phoneinput\"]")
 	WebElement txtphnno;
-	@FindBy(xpath="//*[@class=\"col-9\"]/div[2]/input[1]")//change div and input for options
+	@FindBy(xpath="//*[@class=\"col-9\"]/div[2]/input[1]")//female option, change div and input for options
 	WebElement slctgender;
 	@FindBy(xpath="//*[@id=\"signup\"]")
 	WebElement clicksignup;

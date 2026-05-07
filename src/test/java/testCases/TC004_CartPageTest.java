@@ -19,14 +19,16 @@ public class TC004_CartPageTest extends BaseClass{
 		lp.setEmail(p.getProperty("email"));
 		lp.setPassword(p.getProperty("password"));
 		lp.btnSignin();  
-//TO OPEN CART PAGE			
+//TO OPEN CART PAGE	
+		logger.info("Checking details in the cart page");
 		hp.Cart_Icon();
 		CartPage cp=new CartPage(driver);
-		//cp.cart_list(); 
+/*		cp.addquantity_1();
+		cp.cart_list(); 
 		//cp.cart_pricesummary(); 
 		//cp.subtotalofdresses();	
 		//cp.itemprice();
-		//cp.addquantity_1();
+		
 		int subtotalofitems=cp.subtotalofdresses();
 		int totalpriceofitems=cp.itemprice();
 		Assert.assertEquals(subtotalofitems, totalpriceofitems); 
@@ -42,17 +44,31 @@ public class TC004_CartPageTest extends BaseClass{
 		cp.agree_terms();
 		cp.place_order();
 		cp.finalorder_cofrm();
+	 logger.info("checking all the links of cart page is completed");*/
+
+//USING ANOTHER ACCOUNT
+		String carttitle=cp.cart_page_title();
+		Assert.assertEquals(carttitle, "Shopping Bag");
+		cp.add_qty_of_1st_item();
+		
+		cp.cart_items();
+		cp.add_addrs();
+	int s_ttl=cp.sub_total();
+	int c_price=cp.cart_price();
+		Assert.assertEquals(s_ttl,c_price);
+	int sh_fee=	cp.shipping_fee();
+	int ttl_price=cp.total_price();
+	int expected_amount=(s_ttl+sh_fee);
+		Assert.assertEquals(ttl_price,expected_amount); 
+	//	cp.delete_item();
+		cp.confirm_order();
+		cp.agree_terms();
+		cp.place_order();
+		cp.finalorder_cofrm();
+	
 	 
-	
-	
-	
-	
-	
-	
+		
+			
 }
-	
-	
-	
-	
 	
 }

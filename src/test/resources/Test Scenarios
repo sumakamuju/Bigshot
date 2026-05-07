@@ -1,3 +1,163 @@
+ @TC76
+  Scenario: Verify the add product quantity (1) in Shopping Cart page details & confirm the order
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    And User should see the product details like name, size, and price
+    And User should see the shipping address with name, address, and phone number
+    And User clicks on the + (Add) button
+    And The product quantity should increase by 1
+    Then Total Amount should be correctly calculated Price and SubTotal Amount
+    Then Total Amount should be correctly calculated
+    When User clicks on CONFIRM ORDER button
+    Then User clicks on Place ORDER button
+    Then Order confirmation process should be initiated
+  Given User enters the "https://dev.bigshotonline.com/"          # stepdefinations.RegisterSteps.user_enters_the(java.lang.String)
+  When User MouseHover Account                                    # stepdefinations.RegisterSteps.user_mouse_hover_account()
+  And User click on Login Button                                  # stepdefinations.LoginSteps.user_click_on_login_button()
+  And User enters  valid Mailid as "sridharp@newmeksolutions.com"     # stepdefinations.LoginSteps.user_enters_valid_mailid_as(java.lang.String)
+  And User enters  valid Password as "Sridhar@1993"                                             # stepdefinations.LoginSteps.user_enters_valid_password_as(java.lang.String)
+  And User clicks the SignIn button                                                              # stepdefinations.LoginSteps.user_clicks_the_sign_in_button()
+  And User hovers over the profile icon                                                         # stepdefinations.ProfileSteps.user_hovers_over_the_profile_icon()
+  And User clicks on Wishlist                                                                   # stepdefinations.ProfileSteps.user_clicks_on_wishlist()
+  And User select the size                                                                      # stepdefinations.WishListSteps.user_select_the_size()
+  And User clicks on Move to Cart for a product                                                 # stepdefinations.WishListSteps.user_clicks_on_move_to_cart_for_a_product()
+Displayed Actual message: Item added to cart successfully.
+Displayed expected message: Item added to cart successfully.
+  Then User sees an message as Item added to cart successfully                                  # stepdefinations.WishListSteps.user_sees_an_message_as_item_added_to_cart_successfully()
+  When User navigates to the Shopping Cart page                                                 # stepdefinations.CartSteps.user_navigates_to_the_shopping_cart_page()
+Shopping Bag
+1 Item
+  Then User should see the Shopping Bag title                                                   # stepdefinations.CartSteps.user_should_see_the_shopping_bag_title()
+DESIGNER SUITS
+S/36
+M/38
+L/40
+XL/42
+XXL/44
+Customize
+Price : ₹ 17999 Sub Total : ₹ 17999
+Expected Delivery by 21 May 2026
+7 days exchange available in India only.
+MOVE TO WISHLIST
+  And User should see the product details like name, size, and price                            # stepdefinations.CartSteps.user_should_see_the_product_details_like_name_size_and_price()
+Shipping Address :
+businaveenkalyannaiduss
+102/b/6 srnagar, India - 500048
++91 - 9865748777
+  And User should see the shipping address with name, address, and phone number                 # stepdefinations.CartSteps.user_should_see_the_shipping_address_with_name_address_and_phone_number()
+  And User clicks on the + (Add) button                                                         # stepdefinations.CartSteps.user_clicks_on_the_add_button()
+
+Product quantity: 2
+  And The product quantity should increase by 1                                                 # stepdefinations.CartSteps.the_product_quantity_should_increase_by(java.lang.Integer)
+ Quantity : 2
+Price : ₹ 17999
+Sub Total : ₹ 35998
+✅ Sub Total correctly calculated as ₹ 35998
+  Then Total Amount should be correctly calculated Price and SubTotal Amount                    # stepdefinations.CartSteps.total_amount_should_be_correctly_calculated_price_and_sub_total_amount()
+Total Amount: ₹ 35998
+Actual Total Amount : ₹ 35998
+Total price is correct
+  Then Total Amount should be correctly calculated                                              # stepdefinations.CartSteps.total_amount_should_be_correctly_calculated()
+  When User clicks on CONFIRM ORDER button                                                      # stepdefinations.CartSteps.user_clicks_on_confirm_order_button()
+  Then User clicks on Place ORDER button                                                        # stepdefinations.CartSteps.user_clicks_on_place_order_button()
+  Then Order confirmation process should be initiated                                           # stepdefinations.CartSteps.order_confirmation_process_should_be_initiated()
+Sridhar P, 8 min
+@TC86
+  Scenario: Via search functionality Verify Buy Button  and confirm the order
+    When User enters "Suits" in the search bar
+    And User submits the search
+    And User select the size from category
+    And User clicks on Buy Now Button
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    And User should see the product details like name, size, and price
+    And User should see the shipping address with name, address, and phone number
+    And User should see the price details including item price and shipping fee
+    Then Total Amount should be correctly calculated
+    When User clicks on CONFIRM ORDER button
+    Then User clicks on Place ORDER button
+    Then Order confirmation process should be initiated
+Scenario: Delete item from cart(Recently added item)
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    When User clicks on the "Delete" icon for a product
+    Then The product should be removed from the cart
+    And User should see a message "Your cart is empty"
+@TC81
+  Scenario: Delete item from cart (Recently added item)
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    When User clicks on the "Delete" icon for a product
+    Then The product should be removed from the cart
+    And User should see a message "Your cart is empty"
+
+  @TC82
+  Scenario: Via Shop Now Verify Shopping Cart page details and confirm the order
+    Then User should see banner with text MEN'S CLOTHING
+    And User should see SHOP NOW button
+    Then User should be redirects to New Arrivels Page
+    And User select the size from category
+    And User clicks on Add to Cart for a product
+    Then User sees an message as Item added to cart successfully
+    When User navigates to the Shopping Cart page
+    And User should see the price details including item price and shipping fee
+    Then Total Amount should be correctly calculated
+    When User clicks on CONFIRM ORDER button
+    Then User clicks on Place ORDER button
+    Then Order confirmation process should be initiated
+
+  @TC83
+  Scenario: Delete item from cart(Recently added item)
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    When User clicks on the "Delete" icon for a product
+    Then The product should be removed from the cart
+    And User should see a message "Your cart is empty"
+
+  @TC84
+  Scenario: Via Shop Now Verify Buy Button  and confirm the order
+    Then User should see banner with text MEN'S CLOTHING
+    And User should see SHOP NOW button
+    Then User should be redirects to New Arrivels Page
+    And User select the size from category
+    And User clicks on Buy Now Button
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    And User should see the product details like name, size, and price
+    And User should see the shipping address with name, address, and phone number
+    And User should see the price details including item price and shipping fee
+    Then Total Amount should be correctly calculated
+    When User clicks on CONFIRM ORDER button
+    Then User clicks on Place ORDER button
+    Then Order confirmation process should be initiated
+
+  @TC85
+  Scenario: Delete item from cart(Recently added item)
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    When User clicks on the "Delete" icon for a product
+    Then The product should be removed from the cart
+    And User should see a message "Your cart is empty"
+
+  @TC86
+  Scenario: Via search functionality Verify Buy Button  and confirm the order
+    When User enters "Suits" in the search bar
+    And User submits the search
+    And User select the size from category
+    And User clicks on Buy Now Button
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    And User should see the product details like name, size, and price
+    And User should see the shipping address with name, address, and phone number
+    And User should see the price details including item price and shipping fee
+    Then Total Amount should be correctly calculated
+    When User clicks on CONFIRM ORDER button
+    Then User clicks on Place ORDER button
+    Then Order confirmation process should be initiated
+
+
+
+
 Feature: User Profile Menu Functionality
 
 	  Background: 

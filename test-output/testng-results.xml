@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-02T22:04:10 IST" name="Default suite" finished-at="2026-05-02T22:04:32 IST" duration-ms="21564">
+  <suite started-at="2026-05-07T17:09:21 IST" name="Default suite" finished-at="2026-05-07T17:10:06 IST" duration-ms="45429">
     <groups>
     </groups>
-    <test started-at="2026-05-02T22:04:10 IST" name="Default test" finished-at="2026-05-02T22:04:32 IST" duration-ms="21564">
-      <class name="testCases.TC004_CartPageTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.TC004_CartPageTest@16293aa2]" started-at="2026-05-02T22:04:10 IST" name="setup" finished-at="2026-05-02T22:04:17 IST" duration-ms="7158" status="PASS">
+    <test started-at="2026-05-07T17:09:21 IST" name="Default test" finished-at="2026-05-07T17:10:06 IST" duration-ms="45429">
+      <class name="testCases.TC003_LoginTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.TC003_LoginTest@16293aa2]" started-at="2026-05-07T17:09:21 IST" name="setup" finished-at="2026-05-07T17:10:00 IST" duration-ms="39146" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="cart_page_verification()[pri:0, instance:testCases.TC004_CartPageTest@16293aa2]" started-at="2026-05-02T22:04:17 IST" name="cart_page_verification" finished-at="2026-05-02T22:04:32 IST" duration-ms="14252" status="PASS">
+        <test-method signature="verify_login()[pri:0, instance:testCases.TC003_LoginTest@16293aa2]" started-at="2026-05-07T17:10:00 IST" name="verify_login" finished-at="2026-05-07T17:10:06 IST" duration-ms="5746" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- cart_page_verification -->
-      </class> <!-- testCases.TC004_CartPageTest -->
+        </test-method> <!-- verify_login -->
+      </class> <!-- testCases.TC003_LoginTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

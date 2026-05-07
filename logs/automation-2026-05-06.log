@@ -1,0 +1,53 @@
+11:38:14.141 [main]  INFO testCases.TC001_HomePageTest - Clicked on Account Link
+11:38:15.098 [main]  INFO testCases.TC001_HomePageTest - Login with valid email id and password
+11:38:17.201 [main]  INFO testCases.TC001_HomePageTest - Checking all the link of the HomePage
+11:44:03.291 [main]  INFO testCases.TC001_HomePageTest - Clicked on Account Link
+11:44:55.888 [main]  INFO testCases.TC001_HomePageTest - Clicked on Account Link
+11:44:56.546 [main]  INFO testCases.TC001_HomePageTest - Login with valid email id and password
+11:45:00.561 [main]  INFO testCases.TC001_HomePageTest - Checking all the link of the HomePage
+11:46:07.953 [main]  INFO testCases.TC001_HomePageTest - Clicked on Account Link
+11:49:54.697 [main]  INFO testCases.TC001_HomePageTest - Clicked on Account Link
+11:49:55.285 [main]  INFO testCases.TC001_HomePageTest - Login with valid email id and password
+11:49:57.017 [main]  INFO testCases.TC001_HomePageTest - Checking all the link of the HomePage
+11:50:17.053 [main]  INFO testCases.TC001_HomePageTest - Checked all th links in HomePage is completed
+11:50:43.102 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+11:50:44.864 [main]  INFO testCases.TC002_AccountRegistration - Acoount creation successful
+12:42:46.685 [main]  INFO testCases.TC003_LoginTest - Checking account name as per the registration
+12:42:47.364 [main]  INFO testCases.TC003_LoginTest - Updating profile page
+12:42:50.480 [main]  INFO testCases.TC003_LoginTest - Acconut updation done and saved
+12:42:50.487 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and size
+12:43:49.266 [main]  INFO testCases.TC003_LoginTest - Checking details in wishlist
+12:43:57.754 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and moving to cart
+12:56:19.884 [main]  INFO testCases.TC003_LoginTest - Checking account name as per the registration
+12:56:20.712 [main]  INFO testCases.TC003_LoginTest - Updating profile page
+12:56:23.317 [main]  INFO testCases.TC003_LoginTest - Acconut updation done and saved
+12:56:23.317 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and size
+12:56:34.888 [main]  INFO testCases.TC003_LoginTest - Checking details in wishlist
+12:56:36.874 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and moving to cart
+13:00:21.790 [main]  INFO testCases.TC003_LoginTest - Entering valid address details for shipping
+13:01:02.407 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
+13:01:07.903 [main]  INFO testCases.TC004_CartPageTest - checking all the links of cart page is completed
+14:21:23.606 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+14:21:26.929 [main]  INFO testCases.TC002_AccountRegistration - Account creation successful
+14:23:25.024 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+14:24:20.211 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+14:25:17.001 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+14:26:49.046 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+14:26:52.626 [main]  INFO testCases.TC002_AccountRegistration - Account creation successful
+14:33:56.568 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+14:33:59.389 [main]  INFO testCases.TC002_AccountRegistration - Account creation successful
+15:06:21.355 [main]  INFO testCases.TC001_HomePageTest - Clicked on Account Link
+15:06:22.007 [main]  INFO testCases.TC001_HomePageTest - Login with valid email id and password
+15:06:22.766 [main]  INFO testCases.TC001_HomePageTest - Checking all the link of the HomePage
+15:07:21.560 [main]  INFO testCases.TC001_HomePageTest - Clicked on Account Link
+15:07:22.830 [main]  INFO testCases.TC001_HomePageTest - Login with valid email id and password
+15:07:24.733 [main]  INFO testCases.TC001_HomePageTest - Checking all the link of the HomePage
+15:07:52.693 [main]  INFO testCases.TC001_HomePageTest - Checked all th links in HomePage is completed
+15:17:15.599 [main]  INFO testCases.TC001_HomePageTest - Clicked on Account Link
+17:38:52.131 [main]  INFO testCases.TC001_HomePageTest - Login with valid email id and password
+17:38:53.618 [main]  INFO testCases.TC001_HomePageTest - Checking all the link of the HomePage
+17:42:30.705 [main]  INFO testCases.TC001_HomePageTest - Login with valid email id and password
+17:42:31.951 [main]  INFO testCases.TC001_HomePageTest - Checking all the link of the HomePage
+12:37:13.481 [main]  INFO testCases.TC003_LoginTest - Entering valid address details for shipping
+12:37:21.167 [main]  INFO testCases.TC003_LoginTest - Checking all the sub-links of account link is completed
+12:47:29.738 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page

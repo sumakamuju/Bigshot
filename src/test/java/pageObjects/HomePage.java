@@ -1,7 +1,9 @@
 package pageObjects;
 
 import java.time.Duration;
+import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -77,6 +79,8 @@ public class HomePage extends BasePage{
 	WebElement linkblazors;
 	@FindBy(xpath="//*[@class=\"list-inline mb-0\"]//li[9]")
 	WebElement linkaccessories;
+	@FindBy(xpath="//*[@id=\"carouselExampleControls\"]/div/div[1]/img")
+	WebElement shopnow;
 	
 	public void homeoption() {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -122,6 +126,10 @@ public class HomePage extends BasePage{
 		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(linkaccessories));
 		linkaccessories.click();
+		
+	}
+	public void shop_now() {
+		shopnow.click();
 	}
 
 //SEARCH BOX AND LOGO
@@ -131,8 +139,22 @@ public class HomePage extends BasePage{
 	WebElement linkcurrency;
 	@FindBy(xpath="//*[@class=\"dropdown\"]/ul/li[1]") 
 	WebElement slctcurrency;
-	@FindBy(xpath="//*[@class=\"search_list\"]")
+	@FindBy(xpath="//input[@placeholder=\"Search by product\"]")
 	WebElement searchbar;
+	//product selection through search bar
+	
+	@FindBy(xpath="//*[@class=\"suggestion-list list-unstyled\"]")
+	WebElement searchword;
+	@FindBy(xpath="//*[@id=\"carouselProduct23\"]")
+	WebElement product1;
+	@FindBy(xpath="(//*[@id=\"sizeList23\"]//div)[3]")
+	WebElement sizexl_of_prod_1;
+	@FindBy(xpath="//*[@id=\"buyNow23\"]")
+	WebElement buy_product1;
+	
+	
+	
+	
 	
 	public boolean company_logo() {  
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10)); 
@@ -147,24 +169,133 @@ public class HomePage extends BasePage{
 		slctcurrency.click();
 	}
 	
-	public void search_box() {
-		wait = new WebDriverWait(driver,Duration.ofSeconds(10)); 
+	public void search_box(String searchingtxt) {
+		wait = new WebDriverWait(driver,Duration.ofSeconds(15)); 
 		wait.until(ExpectedConditions.visibilityOf(searchbar)); 
- new Actions(driver).moveToElement(searchbar).click().sendKeys("suits").perform();
+		searchingtxt ="jodhpuris";
+		action=new Actions(driver);
+		action.moveToElement(searchbar).click().sendKeys(searchingtxt).build().perform();
+		action.moveToElement(searchword).click().build().perform();	
+	} 
+	public void product_selection() {
+		wait =  new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(product1));
+		action= new Actions(driver);
+		action.moveToElement(product1).build().perform();
+		wait.until(ExpectedConditions.visibilityOf(sizexl_of_prod_1));
+		sizexl_of_prod_1.click();
+		wait.until(ExpectedConditions.visibilityOf(buy_product1)); 
+		buy_product1.click();
+	}
+	
+//Bottom links
+	@FindBy(xpath="//*[@class=\"widget_about\"]")
+	WebElement regaddrs;
+	@FindBy(xpath="//*[@class=\"col-md-6 col-lg-2 col-sm-6\"][1]//a")
+List <WebElement> usefullinks;
+	@FindBy(xpath="//*[@class=\"col-md-6 col-lg-2 col-sm-6\"][2]//a")
+	List<WebElement> shopby;
+	@FindBy(xpath="//*[@class=\"col-md-6 col-lg-2 col-sm-6\"][3]//a")
+	List<WebElement> myaccountlinks;
+	@FindBy(xpath="//*[@class=\"text-center mb-4\"]")
+	WebElement about_us;
+	@FindBy(xpath="//*[@class=\"add_cart mb-4\"]")
+	WebElement terms_conditionpg;
+	@FindBy(xpath="//*[@class=\"add_cart mb-4\"]")
+	WebElement faqs;
+	@FindBy(xpath="//*[@class=\"add_cart mb-4\"]")
+	WebElement exchgpolicy;
+	@FindBy(xpath="//*[@class=\"text-center mb-4\"]")
+	WebElement cntc_us;
+	@FindBy(xpath="//*[@class=\"add_cart mb-4\"]")
+	WebElement privacypolicy;
+	
+	@FindBy(xpath="//*[@class=\"add_cart mb-4\"]")
+	List<WebElement> text_in_page; 
+	@FindBy(xpath="//*[@class=\"text-center mb-4\"]")
+	List<WebElement> text_in_page_1;
+	
+	
+	
+	
+	public void Reg_addrs() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(regaddrs));
+		regaddrs.getText();
+		System.out.println(regaddrs.getText());
+	}
+	
+	public void useful_links() {
+
+		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {	
+		for (int i = 0; i < usefullinks.size(); i++) {
+		List<WebElement> linksList = wait.until(ExpectedConditions.visibilityOfAllElements(usefullinks));
+		System.out.println("Total links available: " + linksList.size());
+		    WebElement link = linksList.get(i);
+		     JavascriptExecutor js = (JavascriptExecutor) driver;
+		     js.executeScript("arguments[0].scrollIntoView(true);", link);
+		     System.out.println("Clicking link: " + link.getText());
+		     link.click();
+		      driver.navigate().back();
+		        }
+
+		    } catch (Exception e) {
+		        System.out.println("Exception occurred: " + e.getMessage());
+		        e.printStackTrace();
+		    } 	}
+	
+	
+	public void useful_links_pgtext() throws InterruptedException {
+		int count=usefullinks.size();
+		for(int i=0;i<count;i++) 
+		{
+			wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+			wait.until(ExpectedConditions.visibilityOfAllElements(usefullinks));
+			
+			System.out.println(usefullinks.get(i).getText());
+			usefullinks.get(i).click();
+			try {
+			for(int j=0;j<count;j++) {
+				wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+				wait.until(ExpectedConditions.visibilityOfAllElements(text_in_page));
+				System.out.println("Header of the page: "+text_in_page.get(j).getText());}
+			}
+				catch(Exception e) {
+				System.out.println("Error message " +e.getMessage());
+			}
 		}
+}		
 
-	
-	
-	
-	
-
-	 
-	
-	
-	
-	
-	
-	
-	
-
+	public void Shop_by() {
+		wait = new WebDriverWait(driver,Duration.ofSeconds(15));
+		try {
+			int count = shopby.size();
+			for(int i=0 ; i < count; i++) 
+			{
+			List<WebElement> shopbylinks=wait.until(ExpectedConditions.visibilityOfAllElements(shopby));
+			WebElement pgdwnlinks= shopbylinks.get(i);
+			JavascriptExecutor js=(JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", pgdwnlinks);
+			System.out.println("clicking the links:" + pgdwnlinks.getText());
+			pgdwnlinks.click();
+			wait.until(ExpectedConditions.urlContains("http"));
+			driver.navigate().back();
+			wait.until(ExpectedConditions.visibilityOfAllElements(shopby));		}
+			}
+		catch(Exception e){
+			System.out.println("Exception occured:" + e.getMessage());
+			e.printStackTrace();
+		}
+		}
+	public void my_account_links() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(15));
+		int count=myaccountlinks.size();
+		System.out.println("Total no of links: "+ count);
+		for(int i=0;i<count;i++) {
+			wait.until(ExpectedConditions.visibilityOfAllElements(myaccountlinks));
+			System.out.println(myaccountlinks.get(i).getText());
+			myaccountlinks.get(i).click();
+			}
+}
 }

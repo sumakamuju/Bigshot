@@ -341,7 +341,7 @@ public class LoginPage extends BasePage {
 	 WebElement okbutton;
 	 
 	 
-	 public void click_to_add_addrs() {
+/*	 public void click_to_add_addrs() {
 			wait= new WebDriverWait(driver,Duration.ofSeconds(10));
 			wait.until(ExpectedConditions.visibilityOf(add_new_addrs)); 
 		 add_new_addrs.click();
@@ -413,7 +413,149 @@ public class LoginPage extends BasePage {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
 		wait.until(ExpectedConditions.visibilityOf(okbutton)); 
 		okbutton.click();
+	}  */
+	 
+	 
+//ADD NEW ADDRESS IN ANOTHER ACCOUNT
+	 public void click_to_add_addrs() {
+			wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+			wait.until(ExpectedConditions.visibilityOf(add_new_addrs)); 
+		 add_new_addrs.click();
+	 }
+	 public void name_in_addrs() {
+		 wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+			wait.until(ExpectedConditions.visibilityOf(name));
+		 name.sendKeys("SUMA");
+	 }
+	 public void country_in_addrs() {
+		 wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(country));
+		 country.click(); 
+		 Select s=new Select(country);
+		 s.selectByVisibleText("India");
+	 }
+	public void state_in_addrs() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(state));
+		state.sendKeys("Telanagana");
+	}
+	public void city_in_addrs() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(city));
+		city.sendKeys("HYDERABAD");
+		}
+	public void picode_in_addrs() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(pincode));
+		pincode.sendKeys("500092");
+	}
+	public void address_in() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(address));
+		address.sendKeys("H.NO:8-16, HEMANAGAR, BODUPPAL.");
+	}
+	public void countrycode_in_addrs() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(countrycode));
+		countrycode.click();
+		slctcode.click();
+	}
+	public void phn_number() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(phnno));
+		phnno.sendKeys("0123456789");
+	}
+	public void addrs_type() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(addrstype));
+		addrstype.click();
+	}
+	public void default_addrs() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(makedefaultaddrs));
+		makedefaultaddrs.click();
+	}
+	public void save_addrs() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(saveaddrs));
+		saveaddrs.click();
+	}
+	public void cancel_given_details() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(canceldetails));
+		canceldetails.click(); 
+	}
+	public void ok_button() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(okbutton)); 
+		okbutton.click();
 	}
 
+//NEGATIVE TESTING
+		
+//1. SUBMITTING EMPTY FIELDS FOR LOGIN	
+	@FindBy(xpath="//*[text()='Please enter a valid email.']")
+	WebElement validemailmsg;
+	@FindBy(xpath="//*[text()='Please enter a valid password.']")
+	WebElement validpswdmsg;
+	
+	public String set_email_empty(String email) {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(txtemail));
+		txtemail.sendKeys(email);
+		return email;
+	}
+	public String set_pswd_empty(String pswd) {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(txtPassword));
+		txtPassword.sendKeys(pswd);
+		return pswd;  
+	}
+	public void click_submit() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(clickSubmit));
+		clickSubmit.click(); 
+	} 
+	public String  error_mail_msg() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(validemailmsg));
+		return validemailmsg.getText();
+	}
+	public String error_pswd_msg() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(validpswdmsg));
+		return validpswdmsg.getText(); 
+	}
+//2.ENTERING INVALID LOGIN CREDENTIALS
+	@FindBy(xpath="//*[text()='User not found. Please register first.']")
+	WebElement invalidmailmsg;
+	@FindBy(xpath="//*[text()='Your password is invalid. Please try again.']")
+	WebElement invalidpswdmsg;
+	public String set_invalid_email(String email) {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(txtemail));
+		txtemail.sendKeys(email);
+		return email;	
+	}
+	public String set_invalid_pwsd(String pswd) {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(txtPassword));
+		txtPassword.sendKeys(pswd);
+		return pswd;
+		}
+	public String invalid_mail_msg() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(invalidmailmsg));
+		return invalidmailmsg.getText(); 
+	}
+	public String invalid_pswd_msg() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+		wait.until(ExpectedConditions.visibilityOf(invalidpswdmsg));
+	return invalidpswdmsg.getText();
+	} 
+	
+	
+	
+	
 }
  
