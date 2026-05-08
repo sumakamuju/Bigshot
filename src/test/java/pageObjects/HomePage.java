@@ -139,22 +139,6 @@ public class HomePage extends BasePage{
 	WebElement linkcurrency;
 	@FindBy(xpath="//*[@class=\"dropdown\"]/ul/li[1]") 
 	WebElement slctcurrency;
-	@FindBy(xpath="//input[@placeholder=\"Search by product\"]")
-	WebElement searchbar;
-	//product selection through search bar
-	
-	@FindBy(xpath="//*[@class=\"suggestion-list list-unstyled\"]")
-	WebElement searchword;
-	@FindBy(xpath="//*[@id=\"carouselProduct23\"]")
-	WebElement product1;
-	@FindBy(xpath="(//*[@id=\"sizeList23\"]//div)[3]")
-	WebElement sizexl_of_prod_1;
-	@FindBy(xpath="//*[@id=\"buyNow23\"]")
-	WebElement buy_product1;
-	
-	
-	
-	
 	
 	public boolean company_logo() {  
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10)); 
@@ -169,6 +153,20 @@ public class HomePage extends BasePage{
 		slctcurrency.click();
 	}
 	
+	//PRODUCT SELECTION THROUGH SEARCH BAR
+	@FindBy(xpath="//input[@placeholder=\"Search by product\"]")
+	WebElement searchbar;
+	
+	@FindBy(xpath="//*[@class=\"suggestion-list list-unstyled\"]")
+	WebElement searchword;
+	@FindBy(xpath="//*[@id=\"carouselProduct23\"]")
+	WebElement product1;
+	@FindBy(xpath="(//*[@id=\"sizeList23\"]//div)[3]")
+	WebElement sizexl_of_prod_1;
+	@FindBy(xpath="//*[@id=\"buyNow23\"]")
+	WebElement buy_product1;
+	
+		
 	public void search_box(String searchingtxt) {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(15)); 
 		wait.until(ExpectedConditions.visibilityOf(searchbar)); 
@@ -188,6 +186,42 @@ public class HomePage extends BasePage{
 		buy_product1.click();
 	}
 	
+//NEGATIVE TESTING FOR SEARCH BAR
+	
+	@FindBy(xpath="//*[text()='No suggestions found']")
+	WebElement emptysearch;
+	@FindBy(xpath="//*[text()='Error retrieving suggestions']")
+	WebElement errorsearch;
+	@FindBy(xpath="//*[contains(text(),'Jodhpuris')]")
+	WebElement searchcontains;
+	public String negative_test_in_search(String sreachingtxt) {
+		wait = new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(searchbar));
+		action=new Actions(driver); 
+		searchbar.clear();
+		action.moveToElement(searchbar).click().sendKeys(sreachingtxt).build().perform();
+		return sreachingtxt;  
+	} 
+	public String searchmsg_1() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(emptysearch));
+		String actualmsg=emptysearch.getText();
+		return actualmsg; 
+	} 
+	public String searchmsg_2() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(errorsearch));
+		String actlmsg=errorsearch.getText();
+		 return actlmsg;
+	}
+	public boolean searchmsg_3() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(searchcontains)); 
+	boolean productdisplayed= searchcontains.isDisplayed();
+	return productdisplayed;  
+	}
+	
+		
 //Bottom links
 	@FindBy(xpath="//*[@class=\"widget_about\"]")
 	WebElement regaddrs;

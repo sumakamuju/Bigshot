@@ -1,3 +1,91 @@
+Negative Testing
+FOR LOGIN:
+1.Empty Login credentials
+2.Invalid email & valid password
+3.Valid email & invalid password
+ 
+SEARCH BAR
+1.Empty search field
+2.Search with special characters input
+3.With lower case characters
+4.Without space between words
+5.With wrong spelling
+6.With 2 or more leading space before word
+7.With 2 or more trailing space after word
+8.With mixed case words
+9.With numbers in search
+10.With typo search
+
+REGISTRATION NEAGTIVE TEST CASES:
+Leave mandatory fields empty
+Enter invalid email format
+Use weak passwords
+Password and confirm password mismatch
+Register with already existing email
+Use special characters in name fields
+Enter extremely long input strings
+
+3. Product Page
+Access deleted/discontinued product URL
+Manipulate product ID in URL
+Add out-of-stock product to cart
+Add negative quantity
+Add extremely large quantity
+Select unavailable size/color combinations
+Broken image handling
+Invalid review submission
+4. Shopping Cart
+Add duplicate items repeatedly
+Add zero quantity
+Update quantity with alphabets/special chars
+Remove item already removed
+Cart persistence after logout/login
+Cart behavior across browsers/devices
+Price tampering through browser dev tools
+Modify hidden fields
+5. Checkout Process
+Address Validation
+Invalid ZIP/postal code
+Unsupported country/state combination
+Empty shipping fields
+Special characters in address
+Payment Negative Cases
+Expired card
+Invalid CVV
+Insufficient balance
+Invalid card number
+Payment gateway timeout
+Duplicate payment submission
+Refresh browser during payment
+Cancel payment midway
+Invalid UPI/Wallet credentials
+6. Coupon & Discount Validation
+Expired coupon usage
+Invalid coupon code
+Apply same coupon multiple times
+Coupon below minimum order value
+Tamper coupon request in API
+Combine incompatible offers
+7. Order Management
+Cancel shipped/delivered order
+Return request after return window
+Download invoice for unauthorized order
+Access another user's order via URL manipulation
+8. Security Negative Testing
+Input Validation
+SQL Injection
+Cross-Site Scripting (XSS)
+CSRF attacks
+Command injection
+File upload vulnerabilities
+
+
+
+
+
+
+
+
  @TC76
   Scenario: Verify the add product quantity (1) in Shopping Cart page details & confirm the order
     When User navigates to the Shopping Cart page

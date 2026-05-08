@@ -63,6 +63,70 @@ public class LoginPage extends BasePage {
 		wait.until(ExpectedConditions.visibilityOf(clickSubmit));
 		clickSubmit.click();
 	}
+	
+	//NEGATIVE TESTING
+	
+	//1. SUBMITTING EMPTY FIELDS FOR LOGIN	
+		@FindBy(xpath="//*[text()='Please enter a valid email.']")
+		WebElement validemailmsg;
+		@FindBy(xpath="//*[text()='Please enter a valid password.']")
+		WebElement validpswdmsg;
+		
+		public String set_email_empty(String email) {
+			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+			wait.until(ExpectedConditions.visibilityOf(txtemail));
+			txtemail.sendKeys(email);
+			return email;
+		}
+		public String set_pswd_empty(String pswd) {
+			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+			wait.until(ExpectedConditions.visibilityOf(txtPassword));
+			txtPassword.sendKeys(pswd);
+			return pswd;  
+		}
+		public void click_submit() {
+			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+			wait.until(ExpectedConditions.visibilityOf(clickSubmit));
+			clickSubmit.click(); 
+		} 
+		public String  error_mail_msg() {
+			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+			wait.until(ExpectedConditions.visibilityOf(validemailmsg));
+			return validemailmsg.getText();
+		}
+		public String error_pswd_msg() {
+			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+			wait.until(ExpectedConditions.visibilityOf(validpswdmsg));
+			return validpswdmsg.getText(); 
+		}
+	//2.ENTERING INVALID LOGIN CREDENTIALS
+		@FindBy(xpath="//*[text()='User not found. Please register first.']")
+		WebElement invalidmailmsg;
+		@FindBy(xpath="//*[text()='Your password is invalid. Please try again.']")
+		WebElement invalidpswdmsg;
+		public String set_invalid_email(String email) {
+			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+			wait.until(ExpectedConditions.visibilityOf(txtemail));
+			txtemail.sendKeys(email);
+			return email;	
+		}
+		public String set_invalid_pwsd(String pswd) {
+			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+			wait.until(ExpectedConditions.visibilityOf(txtPassword));
+			txtPassword.sendKeys(pswd);
+			return pswd;
+			}
+		public String invalid_mail_msg() {
+			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+			wait.until(ExpectedConditions.visibilityOf(invalidmailmsg));
+			return invalidmailmsg.getText(); 
+		}
+		public String invalid_pswd_msg() {
+			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+			wait.until(ExpectedConditions.visibilityOf(invalidpswdmsg));
+		return invalidpswdmsg.getText();
+		} 
+		
 //AFTER LOGIN 	
 	public String account_name()
 	{
@@ -491,69 +555,7 @@ public class LoginPage extends BasePage {
 		okbutton.click();
 	}
 
-//NEGATIVE TESTING
-		
-//1. SUBMITTING EMPTY FIELDS FOR LOGIN	
-	@FindBy(xpath="//*[text()='Please enter a valid email.']")
-	WebElement validemailmsg;
-	@FindBy(xpath="//*[text()='Please enter a valid password.']")
-	WebElement validpswdmsg;
-	
-	public String set_email_empty(String email) {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(txtemail));
-		txtemail.sendKeys(email);
-		return email;
-	}
-	public String set_pswd_empty(String pswd) {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(txtPassword));
-		txtPassword.sendKeys(pswd);
-		return pswd;  
-	}
-	public void click_submit() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(clickSubmit));
-		clickSubmit.click(); 
-	} 
-	public String  error_mail_msg() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(validemailmsg));
-		return validemailmsg.getText();
-	}
-	public String error_pswd_msg() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(validpswdmsg));
-		return validpswdmsg.getText(); 
-	}
-//2.ENTERING INVALID LOGIN CREDENTIALS
-	@FindBy(xpath="//*[text()='User not found. Please register first.']")
-	WebElement invalidmailmsg;
-	@FindBy(xpath="//*[text()='Your password is invalid. Please try again.']")
-	WebElement invalidpswdmsg;
-	public String set_invalid_email(String email) {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(txtemail));
-		txtemail.sendKeys(email);
-		return email;	
-	}
-	public String set_invalid_pwsd(String pswd) {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(txtPassword));
-		txtPassword.sendKeys(pswd);
-		return pswd;
-		}
-	public String invalid_mail_msg() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(invalidmailmsg));
-		return invalidmailmsg.getText(); 
-	}
-	public String invalid_pswd_msg() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(invalidpswdmsg));
-	return invalidpswdmsg.getText();
-	} 
-	
+
 	
 	
 	
