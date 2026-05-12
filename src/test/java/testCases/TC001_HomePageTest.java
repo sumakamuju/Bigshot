@@ -41,7 +41,7 @@ public class TC001_HomePageTest extends BaseClass{
 		
 		logger.info("Checked all the links in HomePage is completed");
 	hp.Reg_addrs();
-hp.useful_links();
+	hp.useful_links();
 		hp.useful_links_pgtext();
 	hp.Shop_by();
 		hp.my_account_links();
@@ -101,11 +101,7 @@ hp.useful_links();
 		Assert.assertTrue(hp.searchmsg_3(), "product not displayed");
 		System.out.println("search performed and result appeared");
 		logger.info("search performed with half spelling  word and search passed without error message");
-		
-	
-	} 
-
-	
+	}  
 }
 	
 	

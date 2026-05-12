@@ -250,8 +250,6 @@ List <WebElement> usefullinks;
 	List<WebElement> text_in_page_1;
 	
 	
-	
-	
 	public void Reg_addrs() {
 		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(regaddrs));

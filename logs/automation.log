@@ -1,26 +1,19 @@
-15:13:24.771 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
-11:32:49.414 [main]  INFO testCases.TC001_HomePageTest - Login with valid email id and password
-11:32:51.198 [main]  INFO testCases.TC001_HomePageTest - Checking all the link of the HomePage
-11:35:34.426 [main]  INFO testCases.TC001_HomePageTest - Login with valid email id and password
-11:35:35.969 [main]  INFO testCases.TC001_HomePageTest - Checking all the link of the HomePage
-11:41:44.418 [main]  INFO testCases.TC001_HomePageTest - Login with valid email id and password
-11:41:46.041 [main]  INFO testCases.TC001_HomePageTest - Checking all the link of the HomePage
-12:00:52.678 [main]  INFO testCases.TC001_HomePageTest - Login with valid email id and password
-12:00:54.142 [main]  INFO testCases.TC001_HomePageTest - Checking all the link of the HomePage
-14:15:27.560 [main]  INFO testCases.TC001_HomePageTest - empty search failed with no suggestions found message
-14:15:28.666 [main]  INFO testCases.TC001_HomePageTest - spl charc search failed with Error retrieving suggestions
-14:15:29.065 [main]  INFO testCases.TC001_HomePageTest - search performed with lower case letters and search passed as it is not case sensitive
-15:36:33.703 [main]  INFO testCases.TC001_HomePageTest - search performed with numbers in search word and test passed with error message
-15:51:12.915 [main]  INFO testCases.TC001_HomePageTest - search performed with half spelling  word and search passed without error message
-16:09:33.405 [main]  INFO testCases.TC001_HomePageTest - empty search failed with no suggestions found message
-16:09:34.215 [main]  INFO testCases.TC001_HomePageTest - spl charc search failed with Error retrieving suggestions
-16:10:49.561 [main]  INFO testCases.TC001_HomePageTest - empty search failed with no suggestions found message
-16:10:50.118 [main]  INFO testCases.TC001_HomePageTest - spl charc search failed with Error retrieving suggestions
-16:10:50.601 [main]  INFO testCases.TC001_HomePageTest - search performed with lower case letters and search passed without error message as it is not case sensitive
-16:10:51.415 [main]  INFO testCases.TC001_HomePageTest - search performed without spaces between words and test passed with error message
-16:10:52.479 [main]  INFO testCases.TC001_HomePageTest - search performed with wrong spelling and test passed with error message
-16:10:54.776 [main]  INFO testCases.TC001_HomePageTest - search performed with leading spaces and test passed with error message
-16:10:55.331 [main]  INFO testCases.TC001_HomePageTest - search performed with trailing spaces and test passed with error message
-16:10:55.763 [main]  INFO testCases.TC001_HomePageTest - search performed with mixed case word and search passed without error message
-16:10:56.404 [main]  INFO testCases.TC001_HomePageTest - search performed with numbers in search word and test passed with error message
-16:10:56.795 [main]  INFO testCases.TC001_HomePageTest - search performed with half spelling  word and search passed without error message
+17:02:49.813 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+17:02:58.872 [main]  INFO testCases.TC002_AccountRegistration - registration with empty name fields-- test passed with error message
+17:04:10.862 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+17:05:05.042 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+17:44:22.713 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+17:44:25.993 [main]  INFO testCases.TC002_AccountRegistration - registration with less than 10 digits phn number field -- test passed with error message
+17:51:31.279 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+17:52:36.661 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+17:56:46.665 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+17:56:51.250 [main]  INFO testCases.TC002_AccountRegistration - registration with spl characters in phn number field -- not accepting --test passed with error message
+17:59:08.475 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+17:59:13.664 [main]  INFO testCases.TC002_AccountRegistration - registration with spl characters in phn number field -- not accepting --test passed with error message
+18:00:10.309 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+18:00:13.590 [main]  INFO testCases.TC002_AccountRegistration - registration with spl characters in phn number field -- not accepting --test passed with error message
+18:00:24.773 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+18:01:26.719 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+10:43:03.471 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+10:46:27.667 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+10:48:26.117 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account

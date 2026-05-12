@@ -17,13 +17,24 @@ SEARCH BAR
 10.With typo search
 
 REGISTRATION NEAGTIVE TEST CASES:
-Leave mandatory fields empty
-Enter invalid email format
-Use weak passwords
-Password and confirm password mismatch
-Register with already existing email
-Use special characters in name fields
-Enter extremely long input strings
+1.Leaving first name and last name fields empty
+2.Leaving mail id field empty
+3.Empty passwords fields
+4.Empty password field
+5.Empty confirm password field
+6.Empty phone number
+7.Entering invalid mail id format
+8.Entering weak passwords
+9.Password and confirm password mismatch
+10.Register with already existing email
+11.Use special characters in name fields
+12.Entering only first name without last name
+13.Entering phone number with less than 10 digits
+14.Empty gender field 
+15.Enter extremely long input strings
+16.Special characters in phone number
+17.Phone number with more than 10 digits
+
 
 3. Product Page
 Access deleted/discontinued product URL
