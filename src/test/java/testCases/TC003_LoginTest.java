@@ -1,6 +1,11 @@
 package testCases;
+import java.io.File;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
 import testBase.BaseClass;
@@ -14,9 +19,30 @@ public class TC003_LoginTest extends BaseClass{
 		hp.clickLogin();
 		
 		LoginPage lp=new LoginPage(driver);
-//		lp.setEmail(p.getProperty("email"));
-//		lp.setPassword(p.getProperty("password"));
-//		lp.btnSignin();  
+/*		lp.setEmail(p.getProperty("email"));
+		lp.setPassword(p.getProperty("password"));
+		lp.btnSignin();  */
+//SIGN IN WITH OTP
+	//	lp.sign_in_otp();
+	//THROUGH MAIL
+	/*	lp.otp_mail();
+		lp.email_input_box("sumatestingmail@gmail.com");
+		lp.submit_btn();
+		System.out.println("Displaying internal server error");
+		lp.back_btn();*/
+	//THROUGH PHONE NUMBER
+	/*	lp.otp_phn();
+		lp.phn_optn_country_code();
+		lp.phn_drop_down_optn1();
+		lp.phn_no_input("8142171354");
+		lp.submit_btn();
+		
+//FORGOT PASSWORD
+	/*	lp.forgot_pswd();
+		lp.forgot_pswd_mail_input("sumatestingmail@gmail.com");
+		lp.forgot_pswd_submit();
+		System.out.println("Error: An internal server error occurred. Please try again later. is displaying");
+		
 //		hp.Account();
 //TO CHECK ACCOUNT DETAILS BUTTON
 /*		logger.info("Checking account name as per the registration");
@@ -89,7 +115,11 @@ public class TC003_LoginTest extends BaseClass{
 	//	lp.cancel_given_details();
 	//	lp.logout();
 	//	logger.info("Checking all the sub-links of account link is completed");
-		
+
+
+//NEGATIVE TESTING		
+
+//FOR LOGIN	
 //1. SUBMITTING EMPTY FIELDS FOR LOGIN		
 /*		lp.set_email_empty("               ");
 		lp.set_pswd_empty("         ");
@@ -100,20 +130,109 @@ public class TC003_LoginTest extends BaseClass{
 	Assert.assertEquals(pswd, "Please enter a valid password.");   */
 
 //2.ENTERING INVALID LOGIN CREDENTIALS
+		//invalid mail id
 /*	lp.set_invalid_email("sumakamuju09@gmail.com");
 	lp.setPassword("suma&sunny1508");
 	lp.click_submit();
 	String invalid_mail_msg=lp.invalid_mail_msg();
-	Assert.assertEquals(invalid_mail_msg, "User not found. Please register first.");*/
+	Assert.assertEquals(invalid_mail_msg, "User not found. Please register first.");
+	//invalid pswd
 	lp.setEmail("sumakamuju109@gmail.com");
 	lp.set_invalid_pwsd("sumasunny");
 	lp.click_submit();
-	Assert.assertEquals(lp.invalid_pswd_msg(),"Your password is invalid. Please try again.");
+	Assert.assertEquals(lp.invalid_pswd_msg(),"Your password is invalid. Please try again.");*/	
+
+//3.SIGN IN WITH OTP
+	
+	lp.sign_in_otp();
+
+//THROUGH MAIL
+//1.Entering unregistered mail id
+/*	lp.otp_mail();
+	lp.email_input_box("sumakamuju@gmail.com");
+	lp.submit_btn();
+	System.out.println("Displaying internal server error");
+//2.Empty mail field
+	lp.otp_mail();
+	lp.email_input_box("       ");
+	lp.submit_btn();
+	Assert.assertEquals(lp.submit_err_msg(),"Please enter your email address or phone number.");
+	System.out.println("Displaying error msg: Please enter your email address or phone number.");
+//3.Invalid email format
+	lp.otp_mail();
+	lp.email_input_box("sumakamuju109gmail.com");
+	lp.submit_btn();
+	Assert.assertEquals(lp.submit_err_msg(),"Please enter a valid email address or phone number.");
+	System.out.println("Displaying error msg: Please enter a valid email address or phone number.");
+//4.Space before email
+	lp.otp_mail();
+	lp.email_input_box(" sumakamuju109gmail.com");
+	lp.submit_btn();
+	Assert.assertEquals(lp.submit_err_msg(),"Please enter a valid email address or phone number.");
+	System.out.println("Displaying error msg: Please enter a valid email address or phone number");*/
+	
+//THROUGH PHONE NUMBER
+//1.Submitting invalid phone number format
+/*	lp.otp_phn();
+	lp.phn_optn_country_code();
+	lp.phn_drop_down_optn1();
+	lp.phn_no_input("123456");
+	lp.submit_btn();
+	Assert.assertEquals(lp.submit_err_msg(), "Please enter a valid email address or phone number.");
+	System.out.println("Error msg with Please enter a valid email address or phone number.");
+//2.Entering unregistered mobile number
+	lp.otp_phn();
+	lp.phn_optn_country_code();
+	lp.phn_drop_down_optn1();
+	lp.phn_no_input("9010020333");
+	lp.submit_btn();
+//3.Submitting  phone number with splcharacters format
+	lp.otp_phn();
+	lp.phn_optn_country_code();
+	lp.phn_drop_down_optn1();
+	lp.phn_no_input("8142171@!#");
+	lp.submit_btn();
+	Assert.assertEquals(lp.submit_err_msg(), "Please enter a valid email address or phone number.");
+	System.out.println("Error msg with Please enter a valid email address or phone number.");	*/
+//4.Submitting  phone number with empty format
+	lp.otp_phn();
+	lp.phn_optn_country_code();
+	lp.phn_drop_down_optn1();
+	lp.phn_no_input("        ");
+	lp.submit_btn();
+	Assert.assertEquals(lp.submit_err_msg(), "Please enter your email address or phone number.");
+	System.out.println("Error msg with Please enter your email address or phone number.");
 	
 	
+/*	TakesScreenshot ts=(TakesScreenshot) driver;
+	File sourcefile=ts.getScreenshotAs(OutputType.FILE);
+	File targetfile=new File(System.getProperty(("user.dir")+"\\screenshots\\fullpage.png"));
+	sourcefile.renameTo(targetfile);*/
 	
-	
-	
+//FORGOT PASSWORD
+//1.Entering unregistered mail id
+/*	lp.forgot_pswd();
+	lp.forgot_pswd_mail_input("sumakamuju@gmail.com");
+	lp.forgot_pswd_submit();
+	System.out.println("Error: An internal server error occurred. Please try again later. is displaying");
+//2.Submitting empty email field
+	lp.forgot_pswd();
+	lp.forgot_pswd_mail_input("   ");
+	lp.forgot_pswd_submit();
+	Assert.assertEquals(lp.submit_err_msg(), "Please enter your email.");
+	System.out.println("Error msg with Please enter your email. is displayed");
+//3.Invalid email format
+	lp.forgot_pswd();
+	lp.forgot_pswd_mail_input("sumakamuju109gmail.com");
+	lp.forgot_pswd_submit();
+	Assert.assertEquals(lp.submit_err_msg(), "Please enter a valid email address.");
+	System.out.println("Error msg with Please enter a valid email address. is displayed");
+//4.Spaces before email
+	lp.forgot_pswd();
+	lp.forgot_pswd_mail_input("  sumakamuju109@gmail.com");
+	lp.forgot_pswd_submit();
+	Assert.assertEquals(lp.submit_err_msg(), "Error: An internal server error occurred. Please try again later.");
+	System.out.println("Error msg with Error: An internal server error occurred. Please try again later. is displayed");*/
 	
 	} 
 		

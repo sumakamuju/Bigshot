@@ -1,9 +1,21 @@
-Negative Testing
+NEGATIVE TESTING 
+
 FOR LOGIN:
 1.Empty Login credentials
 2.Invalid email & valid password
 3.Valid email & invalid password
- 
+
+SIGN WITH OTP
+1.Entering unregistered mail id
+2.Entering unregistered mobile number
+
+FORGOT PASSWORD 
+1.Entering unregistered mail id
+2.Empty email/mobile field 
+3.Invalid email format
+4.Spaces before email
+   
+   
 SEARCH BAR
 1.Empty search field
 2.Search with special characters input
@@ -34,6 +46,10 @@ REGISTRATION NEAGTIVE TEST CASES:
 15.Enter extremely long input strings
 16.Special characters in phone number
 17.Phone number with more than 10 digits
+
+
+
+
 
 
 3. Product Page
@@ -91,10 +107,82 @@ Command injection
 File upload vulnerabilities
 
 
+Forgot Password – Negative Test Cases
+Email / Mobile Input Validation
 
 
+| Test Case                           | Expected Result                                           |
+| ----------------------------------- | --------------------------------------------------------- |
+| Empty email/mobile field            | Validation message displayed                              |
+| Invalid email format (`abc@`)       | Error shown                                               |
+| Invalid phone number length         | Error shown                                               |
+| Special characters in phone number  | Rejected                                                  |
+| Spaces before/after email           | Trim or validation error                                  |
+| Non-registered email/mobile         | Generic error message without revealing account existence |
+| SQL injection input (`' OR 1=1 --`) | Input sanitized                                           |
+| Script injection (`<script>`)       | Prevent XSS                                               |
+| Very long input string              | Handled gracefully                                        |
+| Unicode/emojis in input             | Validation error                                          |
 
+Password Validation
 
+| Test Case                              | Expected Result             |
+| -------------------------------------- | --------------------------- |
+| Empty password                         | Validation error            |
+| Weak password                          | Policy error                |
+| Password below minimum length          | Rejected                    |
+| Password without special chars         | Rejected if policy requires |
+| Password and confirm password mismatch | Error shown                 |
+| Old password reused                    | Prevented                   |
+| Password with spaces only              | Rejected                    |
+| Extremely long password                | Handled safely              |
+| SQL/script input as password           | Safely handled              |
+Sign In with OTP – Negative Test Cases
+Mobile/Email Validation
+| Test Case                    | Expected Result  |
+| ---------------------------- | ---------------- |
+| Empty mobile/email           | Validation error |
+| Invalid email/mobile format  | Error shown      |
+| Unregistered user            | Generic message  |
+| Special characters in mobile | Rejected         |
+| Spaces in OTP login field    | Trim or reject   |
+| SQL injection attempts       | Sanitized        |
+| XSS payload input            | Blocked          |
+
+OTP Generation & Delivery
+
+| Test Case                       | Expected Result     |
+| ------------------------------- | ------------------- |
+| OTP not delivered               | Retry/resend option |
+| OTP delayed                     | Informative message |
+| Multiple OTP requests quickly   | Rate limit          |
+| Old OTP used after resend       | Invalid             |
+| OTP generated for blocked user  | Denied              |
+| OTP sent after account deletion | Should fail         |
+OTP Verification
+| Test Case                          | Expected Result  |
+| ---------------------------------- | ---------------- |
+| Incorrect OTP                      | Error shown      |
+| Expired OTP                        | Expired message  |
+| Empty OTP field                    | Validation error |
+| OTP shorter/longer than expected   | Validation error |
+| Alphanumeric OTP for numeric field | Rejected         |
+| Reuse of OTP                       | Blocked          |
+| Multiple wrong attempts            | Temporary lock   |
+| OTP entered after logout           | Invalid          |
+| OTP from another account used      | Rejected         |
+OTP / Reset Link Issues
+| Test Case                              | Expected Result           |
+| -------------------------------------- | ------------------------- |
+| Expired OTP/reset link                 | Expiration error          |
+| Already used reset link                | Invalid/used link message |
+| Wrong OTP entered                      | Error shown               |
+| Partial OTP entered                    | Validation error          |
+| Alphanumeric OTP when numeric expected | Validation error          |
+| Multiple incorrect OTP attempts        | Account cooldown/lock     |
+| OTP reused after success               | Rejected                  |
+| OTP sent to old email after update     | Should not work           |
+| Manipulated reset URL token            | Invalid token error       |
 
 
  @TC76

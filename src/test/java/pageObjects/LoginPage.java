@@ -31,22 +31,8 @@ public class LoginPage extends BasePage {
 	@FindBy(xpath="//*[@id='loginPassword']")
 	WebElement txtPassword;
 	@FindBy(xpath="//*[@id='loginSubmit']")
-	WebElement clickSubmit; 
+	WebElement clickSubmit;  
 	
-//ACCOUNT_DETAILS_OPTIONS
-	@FindBy(xpath="//*[@id=\"userMenu\"]/li[1]/a")
-	WebElement accountname;
-	@FindBy(xpath="//*[@id=\"userMenu\"]/li[2]")
-	WebElement linkaccountdetails;
-	@FindBy(xpath="(//*[@class=\"list-unstyled\"][@id=\"userMenu\"]/li/a)[3]")
-	WebElement linkwishlist;
-	@FindBy(xpath="//*[@id=\"userMenu\"]/li[4]/a")
-	WebElement linkorders;
-	@FindBy(xpath="//*[@id=\"userMenu\"]/li[5]")
-	WebElement linkaddresses;
-    @FindBy(xpath="(//*[@id=\"userMenu\"]/li[6]/a)")
-    WebElement linklogout;
-		 
 	public void setEmail(String email)
 	{	wait=new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(txtemail));
@@ -63,70 +49,131 @@ public class LoginPage extends BasePage {
 		wait.until(ExpectedConditions.visibilityOf(clickSubmit));
 		clickSubmit.click();
 	}
+//SIGN IN WITH OTP
+	@FindBy(xpath="(//a[@class=\"reg cursor\"])[1]")
+	WebElement forgotpswd;
+	@FindBy(xpath="//*[@id=\"emailInput\"]")
+	WebElement mailinput;
+	@FindBy(xpath="//div[@class='toast-message']")
+	WebElement submiterrmsg;
+	@FindBy(xpath="(//a[@class=\"reg cursor\"])[2]")
+	WebElement otpsignin;
+	@FindBy(xpath="//*[@id=\"emailRadio\"]")
+	WebElement mailradiobtn;
+	@FindBy(xpath="//*[@id=\"phoneRadio\"]")
+	WebElement phnradiobtn;
+	@FindBy(xpath="//*[@id=\"emailInput2\"]")
+	WebElement emailinput;
+	@FindBy(xpath="//*[@id=\"custom-dropdown-login\"]")
+	WebElement countrycodedropdown;
+	@FindBy(xpath="//*[@data-id=\"1\"]")
+//	@FindBy(xpath="(//*[@class=\"profile_contact\"]//div[2])//div[1]")
+//	@FindBy(xpath="//*[@class=\"custom-options\"]//div[1]")
+	WebElement dropdownoptn1;
+	@FindBy(xpath="//*[@id=\"phoneInput\"]")
+	WebElement phnnoinput;
+	@FindBy(xpath="//*[@class=\"text-center\"]//a")
+	WebElement backbtn;
+	@FindBy(xpath="(//*[@class=\"text-center\"]/button)[3]")
+	WebElement submitbtn;
+	@FindBy(xpath="//*[@id=\"forgotbutton\"]")
+	WebElement submitmail;
 	
-	//NEGATIVE TESTING
+	public void sign_in_otp() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(otpsignin));
+		otpsignin.click();
+	}
+	public void otp_mail() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(mailradiobtn));
+		mailradiobtn.click();
+	}
+	public void otp_phn() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(phnradiobtn));
+		phnradiobtn.click();
+	}
+	public void email_input_box(String email) {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(emailinput));
+		action=new Actions(driver);
+		action.moveToElement(emailinput).click().sendKeys(email).build().perform();
+	 
+	}
+	public void phn_optn_country_code() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.visibilityOf(countrycodedropdown));
+		action=new Actions(driver);
+		action.moveToElement(countrycodedropdown).click().build().perform();
+		countrycodedropdown.click();  
+	}
+	public void phn_drop_down_optn1() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(20));
+	//	wait.until(ExpectedConditions.visibilityOf(dropdownoptn1));
+		wait.until(ExpectedConditions.elementToBeClickable(dropdownoptn1));
+		action.moveToElement(dropdownoptn1).click().perform();
+	//	dropdownoptn1.click();  
+	}  
+	public void phn_no_input(String phoneno) {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.visibilityOf(phnnoinput));
+		action.moveToElement(phnnoinput).click().build().perform();
+		phnnoinput.sendKeys(phoneno);  
+	}
+	public void back_btn() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(backbtn));
+		backbtn.click();  
+	}
+	public void submit_btn() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(submitbtn));
+		submitbtn.click();  
+	}
+	public void forgot_pswd() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(forgotpswd));
+		forgotpswd.click();
+	}
+	public void forgot_pswd_mail_input(String email) {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(mailinput));
+		mailinput.sendKeys(email);
+	}
+	public void forgot_pswd_submit() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(submitmail));
+		submitmail.click();
+	}
+	public String submit_err_msg() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(submiterrmsg));
+		return submiterrmsg.getText(); 
+	}
 	
-	//1. SUBMITTING EMPTY FIELDS FOR LOGIN	
-		@FindBy(xpath="//*[text()='Please enter a valid email.']")
-		WebElement validemailmsg;
-		@FindBy(xpath="//*[text()='Please enter a valid password.']")
-		WebElement validpswdmsg;
-		
-		public String set_email_empty(String email) {
-			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-			wait.until(ExpectedConditions.visibilityOf(txtemail));
-			txtemail.sendKeys(email);
-			return email;
-		}
-		public String set_pswd_empty(String pswd) {
-			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-			wait.until(ExpectedConditions.visibilityOf(txtPassword));
-			txtPassword.sendKeys(pswd);
-			return pswd;  
-		}
-		public void click_submit() {
-			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-			wait.until(ExpectedConditions.visibilityOf(clickSubmit));
-			clickSubmit.click(); 
-		} 
-		public String  error_mail_msg() {
-			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-			wait.until(ExpectedConditions.visibilityOf(validemailmsg));
-			return validemailmsg.getText();
-		}
-		public String error_pswd_msg() {
-			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-			wait.until(ExpectedConditions.visibilityOf(validpswdmsg));
-			return validpswdmsg.getText(); 
-		}
-	//2.ENTERING INVALID LOGIN CREDENTIALS
-		@FindBy(xpath="//*[text()='User not found. Please register first.']")
-		WebElement invalidmailmsg;
-		@FindBy(xpath="//*[text()='Your password is invalid. Please try again.']")
-		WebElement invalidpswdmsg;
-		public String set_invalid_email(String email) {
-			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-			wait.until(ExpectedConditions.visibilityOf(txtemail));
-			txtemail.sendKeys(email);
-			return email;	
-		}
-		public String set_invalid_pwsd(String pswd) {
-			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-			wait.until(ExpectedConditions.visibilityOf(txtPassword));
-			txtPassword.sendKeys(pswd);
-			return pswd;
-			}
-		public String invalid_mail_msg() {
-			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-			wait.until(ExpectedConditions.visibilityOf(invalidmailmsg));
-			return invalidmailmsg.getText(); 
-		}
-		public String invalid_pswd_msg() {
-			wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-			wait.until(ExpectedConditions.visibilityOf(invalidpswdmsg));
-		return invalidpswdmsg.getText();
-		} 
-		
+	
+	
+	
+/*
+	
+//ACCOUNT_DETAILS_OPTIONS
+	@FindBy(xpath="//*[@id=\"userMenu\"]/li[1]/a")
+	WebElement accountname;
+	@FindBy(xpath="//*[@id=\"userMenu\"]/li[2]")
+	WebElement linkaccountdetails;
+	@FindBy(xpath="(//*[@class=\"list-unstyled\"][@id=\"userMenu\"]/li/a)[3]")
+	WebElement linkwishlist;
+	@FindBy(xpath="//*[@id=\"userMenu\"]/li[4]/a")
+	WebElement linkorders;
+	@FindBy(xpath="//*[@id=\"userMenu\"]/li[5]")
+	WebElement linkaddresses;
+    @FindBy(xpath="(//*[@id=\"userMenu\"]/li[6]/a)")
+    WebElement linklogout;
+		 
+	
+	
+	
 //AFTER LOGIN 	
 	public String account_name()
 	{
@@ -404,7 +451,7 @@ public class LoginPage extends BasePage {
 	 @FindBy(xpath="//*[@class=\"swal2-actions\"]")
 	 WebElement okbutton;
 	 
-	 
+//ADDING ADDRESS	 
 /*	 public void click_to_add_addrs() {
 			wait= new WebDriverWait(driver,Duration.ofSeconds(10));
 			wait.until(ExpectedConditions.visibilityOf(add_new_addrs)); 
@@ -479,7 +526,7 @@ public class LoginPage extends BasePage {
 		okbutton.click();
 	}  */
 	 
-	 
+/*	 
 //ADD NEW ADDRESS IN ANOTHER ACCOUNT
 	 public void click_to_add_addrs() {
 			wait= new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -555,6 +602,69 @@ public class LoginPage extends BasePage {
 		okbutton.click();
 	}
 
+	//NEGATIVE TESTING
+	
+		//1. SUBMITTING EMPTY FIELDS FOR LOGIN	
+			@FindBy(xpath="//*[text()='Please enter a valid email.']")
+			WebElement validemailmsg;
+			@FindBy(xpath="//*[text()='Please enter a valid password.']")
+			WebElement validpswdmsg;
+			
+			public String set_email_empty(String email) {
+				wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+				wait.until(ExpectedConditions.visibilityOf(txtemail));
+				txtemail.sendKeys(email);
+				return email;
+			}
+			public String set_pswd_empty(String pswd) {
+				wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+				wait.until(ExpectedConditions.visibilityOf(txtPassword));
+				txtPassword.sendKeys(pswd);
+				return pswd;  
+			}
+			public void click_submit() {
+				wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+				wait.until(ExpectedConditions.visibilityOf(clickSubmit));
+				clickSubmit.click(); 
+			} 
+			public String  error_mail_msg() {
+				wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+				wait.until(ExpectedConditions.visibilityOf(validemailmsg));
+				return validemailmsg.getText();
+			}
+			public String error_pswd_msg() {
+				wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+				wait.until(ExpectedConditions.visibilityOf(validpswdmsg));
+				return validpswdmsg.getText(); 
+			}
+		//2.ENTERING INVALID LOGIN CREDENTIALS
+			@FindBy(xpath="//*[text()='User not found. Please register first.']")
+			WebElement invalidmailmsg;
+			@FindBy(xpath="//*[text()='Your password is invalid. Please try again.']")
+			WebElement invalidpswdmsg;
+			public String set_invalid_email(String email) {
+				wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+				wait.until(ExpectedConditions.visibilityOf(txtemail));
+				txtemail.sendKeys(email);
+				return email;	
+			}
+			public String set_invalid_pwsd(String pswd) {
+				wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+				wait.until(ExpectedConditions.visibilityOf(txtPassword));
+				txtPassword.sendKeys(pswd);
+				return pswd;
+				}
+			public String invalid_mail_msg() {
+				wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+				wait.until(ExpectedConditions.visibilityOf(invalidmailmsg));
+				return invalidmailmsg.getText(); 
+			}
+			public String invalid_pswd_msg() {
+				wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
+				wait.until(ExpectedConditions.visibilityOf(invalidpswdmsg));
+			return invalidpswdmsg.getText();
+			} */
+			
 
 	
 	
