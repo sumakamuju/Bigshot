@@ -35,7 +35,7 @@ public class Suitspage extends BasePage {
 	@FindBy(xpath="//*[@id=\"addToCart11\"]")
 	WebElement add_suit2_to_cart;
 	
-	
+		
 	
 	public void sort_by_option() {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -59,8 +59,55 @@ public class Suitspage extends BasePage {
 		action = new Actions(driver);
 		action.moveToElement(sel_suit_2).perform();
 		suit_2_size.click();
-		add_suit2_to_cart.click();
+		add_suit2_to_cart.click();}
+
+//NEGATIVE TESTING
+//1.Increasing the quantity of the product
+@FindBy(xpath="//*[@id=\"carouselProduct13\"]")
+WebElement suit2;
+@FindBy(xpath="//*[@data-sizeid=\"4\"]")
+WebElement suitsizelarge;
+@FindBy(xpath="//*[@class=\"qty-plus\"]")
+WebElement suitquantity;
+@FindBy(xpath="//*[@class=\"qty-minus\"]")
+WebElement suitquantityless;  
+@FindBy(xpath="//*[contains(@class,\"addtobag_btn\")]")
+WebElement addtocart;
+@FindBy(xpath="//*[@class=\"qty\"]")
+WebElement qtyvalue;
+public void slct_suit2() {
+	wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+	wait.until(ExpectedConditions.visibilityOf(suit2));
+	suit2.click();
+}
+	public void suit_size_large() {
+		wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(suitsizelarge));
+		suitsizelarge.click();
 	}
+	public void suitquant_more() {
+		wait=new WebDriverWait(driver, Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(suitsizelarge));
+		suitquantity.click();
+	}
+	public void suitquant_less() {
+		wait=new WebDriverWait(driver, Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(suitquantityless));
+		suitquantityless.click();
+	}
+	public void move_to_cart() {
+		wait=new WebDriverWait(driver, Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(suitsizelarge));
+		addtocart.click();
+		}
+	public String qty_of_suit() {
+		wait=new WebDriverWait(driver, Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(qtyvalue));
+		String value=qtyvalue.getAttribute("value");
+		System.out.println("quantity of the product in cart: "+value);
+		return value;
+	}
+	
 	
 	
 

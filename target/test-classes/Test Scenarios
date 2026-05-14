@@ -47,6 +47,39 @@ REGISTRATION NEAGTIVE TEST CASES:
 16.Special characters in phone number
 17.Phone number with more than 10 digits
 
+WHISHLIST PAGE
+1.Add product to wishlist without login 
+2. Add same product multiple times
+
+PRODUCT PAGE
+1.Exceeding the quantity of the product
+
+
+
+
+Negative Test Cases for Wishlist Page
+| Test Case ID | Scenario                                                 | Test Data                   | Expected Result                               |
+| ------------ | -------------------------------------------------------- | --------------------------- | --------------------------------------------- |
+| WL_NEG_001   | Add product to wishlist without login                    | Guest user                  | System should redirect to login/signup page   |
+| WL_NEG_002   | Add unavailable/out-of-stock product to wishlist         | Out-of-stock item           | Proper validation/error message should appear |
+| WL_NEG_003   | Add same product multiple times                          | Same product repeatedly     | Product should not duplicate in wishlist      |
+| WL_NEG_004   | Remove product not present in wishlist                   | Invalid product             | System should handle gracefully without crash |
+| WL_NEG_005   | Access wishlist URL directly without authentication      | Direct URL hit              | User should be redirected to login            |
+| WL_NEG_006   | Add wishlist item when internet connection is lost       | Network disconnected        | Proper error/timeout message displayed        |
+| WL_NEG_007   | Wishlist limit exceeded                                  | Max items + 1               | Validation message should appear              |
+| WL_NEG_008   | Add invalid product ID through API/UI manipulation       | Invalid ID                  | System should reject request                  |
+| WL_NEG_009   | Session expired while using wishlist                     | Expired token/session       | User should be redirected to login            |
+| WL_NEG_010   | Remove item during server delay/refresh                  | Multiple rapid clicks       | No duplicate actions or crash                 |
+| WL_NEG_011   | Wishlist button disabled product                         | Disabled product            | Wishlist action should not work               |
+| WL_NEG_012   | Add deleted product to wishlist                          | Removed product             | Appropriate error shown                       |
+| WL_NEG_013   | SQL/script injection in wishlist notes/comments          | `<script>alert(1)</script>` | Input should be sanitized                     |
+| WL_NEG_014   | Open wishlist in multiple tabs and modify simultaneously | Multi-tab operations        | Data consistency maintained                   |
+| WL_NEG_015   | Wishlist page refresh during add/remove action           | Browser refresh             | No inconsistent data                          |
+| WL_NEG_016   | Unauthorized API call for wishlist                       | Invalid token               | API should return 401/403                     |
+| WL_NEG_017   | Add product with missing mandatory fields                | Corrupted product data      | System should reject gracefully               |
+| WL_NEG_018   | Browser back/forward navigation issue                    | Navigation actions          | Wishlist state should remain correct          |
+| WL_NEG_019   | Very slow response from server                           | Throttled network           | Loading indicator/error handling works        |
+| WL_NEG_020   | Wishlist page with unsupported browser                   | Old browser version         | Proper compatibility handling/message         |
 
 
 
@@ -61,6 +94,7 @@ Add extremely large quantity
 Select unavailable size/color combinations
 Broken image handling
 Invalid review submission
+
 4. Shopping Cart
 Add duplicate items repeatedly
 Add zero quantity

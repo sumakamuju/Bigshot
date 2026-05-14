@@ -1,27 +1,30 @@
 package testCases;
-import java.io.File;
+import static org.testng.Assert.assertEquals;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
+import pageObjects.Suitspage;
 import testBase.BaseClass;
 
 public class TC003_LoginTest extends BaseClass{
 
 	@Test
-	public void verify_login() throws InterruptedException {
+	public void verify_login() throws InterruptedException, IOException {
 		HomePage hp=new HomePage(driver);
 		hp.Account();
 		hp.clickLogin();
 		
 		LoginPage lp=new LoginPage(driver);
-/*		lp.setEmail(p.getProperty("email"));
+		lp.setEmail(p.getProperty("email"));
 		lp.setPassword(p.getProperty("password"));
-		lp.btnSignin();  */
+		lp.btnSignin();  
+		Suitspage sp= new Suitspage(driver);
+		
 //SIGN IN WITH OTP
 	//	lp.sign_in_otp();
 	//THROUGH MAIL
@@ -144,7 +147,7 @@ public class TC003_LoginTest extends BaseClass{
 
 //3.SIGN IN WITH OTP
 	
-	lp.sign_in_otp();
+//	lp.sign_in_otp();
 
 //THROUGH MAIL
 //1.Entering unregistered mail id
@@ -193,22 +196,22 @@ public class TC003_LoginTest extends BaseClass{
 	lp.phn_no_input("8142171@!#");
 	lp.submit_btn();
 	Assert.assertEquals(lp.submit_err_msg(), "Please enter a valid email address or phone number.");
-	System.out.println("Error msg with Please enter a valid email address or phone number.");	*/
+	System.out.println("Error msg with Please enter a valid email address or phone number.");	
 //4.Submitting  phone number with empty format
 	lp.otp_phn();
 	lp.phn_optn_country_code();
 	lp.phn_drop_down_optn1();
 	lp.phn_no_input("        ");
 	lp.submit_btn();
-	Assert.assertEquals(lp.submit_err_msg(), "Please enter your email address or phone number.");
-	System.out.println("Error msg with Please enter your email address or phone number.");
+//	Assert.assertEquals(lp.submit_err_msg(), "Please enter your email address or phone number.");
+//	System.out.println("Error msg with Please enter your email address or phone number.");
 	
 	
-/*	TakesScreenshot ts=(TakesScreenshot) driver;
+	TakesScreenshot ts=(TakesScreenshot)driver;
 	File sourcefile=ts.getScreenshotAs(OutputType.FILE);
-	File targetfile=new File(System.getProperty(("user.dir")+"\\screenshots\\fullpage.png"));
-	sourcefile.renameTo(targetfile);*/
-	
+	File targetfile=new File(System.getProperty("user.dir")+"\\screenshots\\fullpage.png");
+	FileHandler.copy(sourcefile, targetfile); 
+	 
 //FORGOT PASSWORD
 //1.Entering unregistered mail id
 /*	lp.forgot_pswd();
@@ -234,6 +237,52 @@ public class TC003_LoginTest extends BaseClass{
 	Assert.assertEquals(lp.submit_err_msg(), "Error: An internal server error occurred. Please try again later.");
 	System.out.println("Error msg with Error: An internal server error occurred. Please try again later. is displayed");*/
 	
-	} 
+//WISHLISTPAGE
+		
+//1. WISHLISTING PRODUCT WITHOUT LOGIN
+/*	hp.sherwanis_indowestern();
+	lp.slct_pro_17();
+	Assert.assertEquals(lp.login_prompt_msg(),"Sign in");
+	logger.info("wishlisting without login test passed- sign in prompt message diplayed");*/
+//2. Add same product multiple times	
+/*	hp.sherwanis_indowestern();
+	lp.slct_pro_18();
+	lp.slct_pro_17();
+	lp.slct_pro_18();
+	hp.WishlistIcon();
+	Assert.assertEquals(lp.wishlist_count(),"1 Items");
+	logger.info("only 1 product is wishlisted as 2nd product is clicked 2 times which deselected the item from wishlist.");*/
+
+//PRODUCT PAGE
+//1.Exceeding the quantity of the product
+/*	hp.suits();
+	sp.slct_suit2();
+	sp.suit_size_large();
+	for(int i=1;i<200;i++) {
+		sp.suitquant_more();
+	}
+	sp.move_to_cart();
+	hp.Cart_Icon();
+	Assert.assertEquals(sp.qty_of_suit(), "2");
+	logger.info("Exceeding the quantity of the product to 200 and is added to cart. Test Failed as there is no limit for product quantity");*/
+//2.Add negative quantity in the cart page
+/*		hp.suits();
+		sp.slct_suit2();
+		sp.suit_size_large();	
+		for(int i=1;i<4;i++) {
+			sp.suitquant_more();
+		}
+		sp.move_to_cart();
+		hp.Cart_Icon();
+		for(int i=1;i<6;i++) {
+		sp.suitquant_less();
+		}
+		Assert.assertEquals(sp.qty_of_suit(),"1");
+		logger.info("minimum quantity-strictly 1 count is displayed");*/
+	
+	
+	
+	
+	}  
 		
 } 

@@ -17,3 +17,5 @@
 10:43:03.471 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
 10:46:27.667 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
 10:48:26.117 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+14:42:44.616 [main]  INFO testCases.TC003_LoginTest - only 1 product is wishlisted as 2nd product is clicked 2 times which deselected the item from wishlist.
+16:37:41.427 [main]  INFO testCases.TC003_LoginTest - minimum quantity-strictly 1 count is displayed

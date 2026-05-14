@@ -115,7 +115,7 @@ public class HomePage extends BasePage{
 	public void sherwanis_indowestern() {
 		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(linksherwanisIndoWestern));
-		 linksherwanisIndoWestern.click();
+		 linksherwanisIndoWestern.click(); 
 	 }
 	public void blazors() {
 		wait=new WebDriverWait(driver,Duration.ofSeconds(10));

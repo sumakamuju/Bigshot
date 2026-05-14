@@ -50,7 +50,7 @@ public class LoginPage extends BasePage {
 		clickSubmit.click();
 	}
 //SIGN IN WITH OTP
-	@FindBy(xpath="(//a[@class=\"reg cursor\"])[1]")
+/*	@FindBy(xpath="(//a[@class=\"reg cursor\"])[1]")
 	WebElement forgotpswd;
 	@FindBy(xpath="//*[@id=\"emailInput\"]")
 	WebElement mailinput;
@@ -149,7 +149,7 @@ public class LoginPage extends BasePage {
 	public String submit_err_msg() {
 		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.visibilityOf(submiterrmsg));
-		return submiterrmsg.getText(); 
+		return submiterrmsg.getText();  
 	}
 	
 	
@@ -158,13 +158,13 @@ public class LoginPage extends BasePage {
 /*
 	
 //ACCOUNT_DETAILS_OPTIONS
-	@FindBy(xpath="//*[@id=\"userMenu\"]/li[1]/a")
+/*	@FindBy(xpath="//*[@id=\"userMenu\"]/li[1]/a")
 	WebElement accountname;
 	@FindBy(xpath="//*[@id=\"userMenu\"]/li[2]")
-	WebElement linkaccountdetails;
+	WebElement linkaccountdetails;*/
 	@FindBy(xpath="(//*[@class=\"list-unstyled\"][@id=\"userMenu\"]/li/a)[3]")
 	WebElement linkwishlist;
-	@FindBy(xpath="//*[@id=\"userMenu\"]/li[4]/a")
+/*	@FindBy(xpath="//*[@id=\"userMenu\"]/li[4]/a")
 	WebElement linkorders;
 	@FindBy(xpath="//*[@id=\"userMenu\"]/li[5]")
 	WebElement linkaddresses;
@@ -175,7 +175,7 @@ public class LoginPage extends BasePage {
 	
 	
 //AFTER LOGIN 	
-	public String account_name()
+/*	public String account_name()
 	{
 		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.visibilityOf(accountname));
@@ -187,14 +187,14 @@ public class LoginPage extends BasePage {
 		WebDriverWait accdetails=new WebDriverWait(driver,Duration.ofSeconds(10));
 		accdetails.until(ExpectedConditions.visibilityOf(linkaccountdetails));
 		linkaccountdetails.click();
-	}
+	}*/
 	public void wishlist()
 	{
 		WebDriverWait wishlist=new WebDriverWait(driver,Duration.ofSeconds(15));
 		wishlist.until(ExpectedConditions.visibilityOf(linkwishlist));
 		linkwishlist.click(); 
 	}
-	public void orders() {
+/*	public void orders() {
 		 WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(15)); 
 		wait.until(ExpectedConditions.elementToBeClickable(linkorders));
 		 linkorders.click();
@@ -209,9 +209,9 @@ public class LoginPage extends BasePage {
 		logout.until(ExpectedConditions.visibilityOf(linklogout));
 		linklogout.click();
 	}
-	
+	*/
 //PROFILE PAGE OR ACCOUNT DETAILS PAGE
-	@FindBy(xpath="//*[@class=\"profile_left\"]/h5")
+/*	@FindBy(xpath="//*[@class=\"profile_left\"]/h5")
 	WebElement prfacc_username;
 	@FindBy(xpath="//*[@class=\"nav-link\"]")
 	WebElement toreset_password;
@@ -293,10 +293,10 @@ public class LoginPage extends BasePage {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(cancel));
 		cancel.click();
-	}
+	}*/
 	
 //WISHLISTING PRODUCTS
-	@FindBy(xpath="//*[@class=\"list-inline mb-0\"]/li[2]")
+/*	@FindBy(xpath="//*[@class=\"list-inline mb-0\"]/li[2]")
 	WebElement linksuits;
 	@FindBy(xpath="(//*[@id=\"Layer_1\"])[5]")
 	WebElement suit5;
@@ -309,7 +309,7 @@ public class LoginPage extends BasePage {
 	@FindBy(xpath="//*[@class=\"list-inline mb-0\"]/li[4]")
 	WebElement linkkurtapajmas;
 	@FindBy(xpath="(//*[@id=\"Layer_1\"])[2]")
-	WebElement kurta2;
+	WebElement kurta2;*/
 	
 //IN WISHLIST PAGE
 	@FindBy(xpath="//*[@id=\"wishlist-count\"]")
@@ -320,7 +320,7 @@ public class LoginPage extends BasePage {
 	WebElement productname;
 	
 	
-	public void clicksuits()
+/*	public void clicksuits()
 	{
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(linksuits));
@@ -354,12 +354,13 @@ public class LoginPage extends BasePage {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(kurta2));
 		kurta2.click(); 
-	}
+	}*/
 	
-	public void wishlist_count() {
+	public String wishlist_count() {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(wishlistitems)); 
 		System.out.println("left side count in page: "+wishlistitems.getText());
+		return wishlistitems.getText();
 	}
 	public void product_names() {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -377,8 +378,39 @@ public class LoginPage extends BasePage {
 		return productname.getText();
 	}
 	
+//NEGTIVE TESTING
+//1. WISHLISTING PRODUCT WITHOUT LOGIN
+@FindBy(xpath="(//*[@id=\"Layer_1\"])[3]")
+WebElement wishlistproduct17;
+@FindBy(xpath="//*[text()='Sign in']")
+WebElement loginpromptmsg;
+
+public void slct_pro_17() {
+ 	wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+	wait.until(ExpectedConditions.visibilityOf(wishlistproduct17));
+	wishlistproduct17.click();
+}
+
+public String login_prompt_msg() {
+	wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+	wait.until(ExpectedConditions.visibilityOf(loginpromptmsg));
+	System.out.println(loginpromptmsg.getText());
+	return loginpromptmsg.getText(); 
+}
+//2. Add same product multiple times
+@FindBy(xpath="(//*[@id=\"Layer_1\"])[1]")
+WebElement wishlistproduct18;
+public void slct_pro_18() {
+	wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+	wait.until(ExpectedConditions.visibilityOf(wishlistproduct18));
+	wishlistproduct18.click();
+}
+
+
+	
+	
 	//TO ORDER FROM WISHLIST
-	@FindBy(xpath="//*[@class=\"d-block w-100\"][@alt=\"Formal 3-piece suit\"]")
+/*	@FindBy(xpath="//*[@class=\"d-block w-100\"][@alt=\"Formal 3-piece suit\"]")
 	WebElement dress1;
 	@FindBy(xpath="//*[@id=\"sizeList10\"]/li[3]")
 	WebElement dress1_sizelarge;
