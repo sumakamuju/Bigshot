@@ -22,6 +22,8 @@ public class Suitspage extends BasePage {
 	
 	@FindBy(xpath="//*[@id=\"sortBySelect\"]")
 	WebElement drpdwnsortby;
+	@FindBy(xpath="(//*[@id=\"Layer_1\"])[5]")
+	WebElement suit5;
 	@FindBy(xpath="//*[@id=\"carouselProduct9\"]")
 	WebElement sel_suit_1; 
 	@FindBy(xpath="//*[@id='sizeList9']//li[2]/div")
@@ -35,13 +37,53 @@ public class Suitspage extends BasePage {
 	@FindBy(xpath="//*[@id=\"addToCart11\"]")
 	WebElement add_suit2_to_cart;
 	
-		
+	
+	@FindBy(xpath="//*[@class=\"list-inline mb-0\"]/li[3]")
+	WebElement linkjodhpuris;
+	@FindBy(xpath="(//*[@id=\"Layer_1\"])[3]")
+	WebElement jodhpuri3;
+	@FindBy(xpath="(//*[@id=\"Layer_1\"])[5]")
+	WebElement jodhpuri5;
+	@FindBy(xpath="//*[@class=\"list-inline mb-0\"]/li[4]")
+	WebElement linkkurtapajmas;
+	@FindBy(xpath="(//*[@id=\"Layer_1\"])[2]")
+	WebElement kurta2;
+	public void clickjodhpuri() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(linkjodhpuris));
+	linkjodhpuris.click();}
+	
+	public void selectjodhpuri3() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(jodhpuri3));
+		jodhpuri3.click();
+	}
+	public void selectjodhpiri5() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(jodhpuri5));
+	jodhpuri5.click();}
+	
+	public void clickkurtapajamas() {  
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(linkkurtapajmas));
+	linkkurtapajmas.click();}
+	public void selectkurta() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(kurta2));
+		kurta2.click(); 
+	}
 	
 	public void sort_by_option() {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(drpdwnsortby));
 		Select s=new Select(drpdwnsortby);
 		s.selectByVisibleText("Price Low to High"); 
+		
+	}
+	public void selectsuit() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(suit5));
+		suit5.click();
 	}
 	public void move_suit1_to_cart() {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));

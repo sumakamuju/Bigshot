@@ -23,8 +23,8 @@ public class TC004_CartPageTest extends BaseClass{
 		logger.info("Checking details in the cart page");
 		hp.Cart_Icon();
 		CartPage cp=new CartPage(driver);
-/*		cp.addquantity_1();
-		cp.cart_list(); 
+	//	cp.addquantity_1();
+	//	cp.cart_list(); 
 		//cp.cart_pricesummary(); 
 		//cp.subtotalofdresses();	
 		//cp.itemprice();
@@ -44,8 +44,8 @@ public class TC004_CartPageTest extends BaseClass{
 		cp.agree_terms();
 		cp.place_order();
 		cp.finalorder_cofrm();
-	 logger.info("checking all the links of cart page is completed");*/
-
+	 logger.info("checking all the links of cart page is completed");
+/*
 //USING ANOTHER ACCOUNT
 		String carttitle=cp.cart_page_title();
 		Assert.assertEquals(carttitle, "Shopping Bag");
@@ -65,7 +65,7 @@ public class TC004_CartPageTest extends BaseClass{
 		cp.agree_terms();
 		cp.place_order();
 		cp.finalorder_cofrm();
-	
+	*/
 	 
 		
 			

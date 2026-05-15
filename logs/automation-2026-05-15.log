@@ -1,0 +1,39 @@
+14:20:14.016 [main]  INFO testCases.TC002_AccountRegistration - registration with empty mail id field-- test passed with error message
+14:20:17.050 [main]  INFO testCases.TC002_AccountRegistration - registration with both empty password fields-- test passed with error message
+14:20:19.074 [main]  INFO testCases.TC002_AccountRegistration - registration with empty password field -- test passed with error message
+14:20:21.192 [main]  INFO testCases.TC002_AccountRegistration - registration with empty confirm password field -- test passed with error message
+14:20:23.341 [main]  INFO testCases.TC002_AccountRegistration - registration with empty phn number field -- test passed with error message
+14:20:27.024 [main]  INFO testCases.TC002_AccountRegistration - registration with invalid mail id field-- test passed with error message
+14:20:30.385 [main]  INFO testCases.TC002_AccountRegistration - registration with weak password field-- test passed with error message
+14:20:32.504 [main]  INFO testCases.TC002_AccountRegistration - registration with mismatch password fields-- test passed with error message
+14:22:16.280 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+14:22:16.298 [main]  INFO testCases.TC002_AccountRegistration - Negative testing in Registration window
+14:22:20.940 [main]  INFO testCases.TC002_AccountRegistration - registration with already existing mail id-- test passed with error message
+14:22:25.116 [main]  INFO testCases.TC002_AccountRegistration - registration with spl characters in names field-- test passed with error message
+14:22:28.168 [main]  INFO testCases.TC002_AccountRegistration - registration with last name field empty-- test passed with error message
+14:22:30.316 [main]  INFO testCases.TC002_AccountRegistration - registration with less than 10 digits phn number field -- test passed with error message
+14:24:49.081 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+14:24:49.195 [main]  INFO testCases.TC002_AccountRegistration - Negative testing in Registration window
+14:26:06.871 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+14:26:06.900 [main]  INFO testCases.TC002_AccountRegistration - Negative testing in Registration window
+14:27:37.847 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+14:27:37.868 [main]  INFO testCases.TC002_AccountRegistration - Negative testing in Registration window
+14:27:42.212 [main]  INFO testCases.TC002_AccountRegistration - registration with spl characters in phn number field -- not detecting spl characters but accepting numerics --test passed with error message
+14:28:42.467 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+14:28:42.507 [main]  INFO testCases.TC002_AccountRegistration - Negative testing in Registration window
+14:28:46.530 [main]  INFO testCases.TC002_AccountRegistration - registration with spl characters in phn number field -- not detecting spl characters but accepting numerics --test passed with error message
+14:30:21.634 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
+14:30:21.644 [main]  INFO testCases.TC002_AccountRegistration - Negative testing in Registration window
+14:30:26.512 [main]  INFO testCases.TC002_AccountRegistration - registration with spl characters in phn number field -- not detecting spl characters but accepting numerics --test passed with error message
+14:30:36.745 [main]  INFO testCases.TC002_AccountRegistration - registration with Maximum strings-- test failed and registration is done
+14:30:38.964 [main]  INFO testCases.TC002_AccountRegistration - registration with empty gender field -- test failed as registration is done without gender
+14:30:41.038 [main]  INFO testCases.TC002_AccountRegistration - registration with more than 10 digits in phn number field -- accepting --test failed with registration error message
+14:40:55.432 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+14:53:34.879 [main]  INFO testCases.TC003_LoginTest - Internal server issue when sign in with otp
+14:54:23.214 [main]  INFO testCases.TC003_LoginTest - Internal server issue when sign in with otp
+14:57:25.989 [main]  INFO testCases.TC003_LoginTest - Internal server issue when sign in with otp through mail
+14:57:27.259 [main]  INFO testCases.TC003_LoginTest - Internal server issue when sign in with otp through phone number
+14:57:28.544 [main]  INFO testCases.TC003_LoginTest - Error: An internal server error occurred. Please try again later. is displaying
+15:19:17.573 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+15:19:21.688 [main]  INFO testCases.TC003_LoginTest - Checking account name as per the registration
+15:19:22.515 [main]  INFO testCases.TC003_LoginTest - Updating profile page

@@ -1,21 +1,48 @@
-17:02:49.813 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-17:02:58.872 [main]  INFO testCases.TC002_AccountRegistration - registration with empty name fields-- test passed with error message
-17:04:10.862 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-17:05:05.042 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-17:44:22.713 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-17:44:25.993 [main]  INFO testCases.TC002_AccountRegistration - registration with less than 10 digits phn number field -- test passed with error message
-17:51:31.279 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-17:52:36.661 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-17:56:46.665 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-17:56:51.250 [main]  INFO testCases.TC002_AccountRegistration - registration with spl characters in phn number field -- not accepting --test passed with error message
-17:59:08.475 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-17:59:13.664 [main]  INFO testCases.TC002_AccountRegistration - registration with spl characters in phn number field -- not accepting --test passed with error message
-18:00:10.309 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-18:00:13.590 [main]  INFO testCases.TC002_AccountRegistration - registration with spl characters in phn number field -- not accepting --test passed with error message
-18:00:24.773 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-18:01:26.719 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-10:43:03.471 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-10:46:27.667 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-10:48:26.117 [main]  INFO testCases.TC002_AccountRegistration - Clicking on registration link to create new account
-14:42:44.616 [main]  INFO testCases.TC003_LoginTest - only 1 product is wishlisted as 2nd product is clicked 2 times which deselected the item from wishlist.
-16:37:41.427 [main]  INFO testCases.TC003_LoginTest - minimum quantity-strictly 1 count is displayed
+15:19:24.566 [main]  INFO testCases.TC003_LoginTest - Account updation done and saved
+15:36:33.482 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+15:36:34.738 [main]  INFO testCases.TC003_LoginTest - Wishlisting products
+15:36:54.373 [main]  INFO testCases.TC003_LoginTest - Checking details in wishlist
+15:36:56.890 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and moving to cart
+16:08:22.781 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+16:08:24.610 [main]  INFO testCases.TC003_LoginTest - Checking account name as per the registration
+16:08:25.706 [main]  INFO testCases.TC003_LoginTest - Updating profile page
+16:08:28.415 [main]  INFO testCases.TC003_LoginTest - Account updation done and saved
+16:08:28.417 [main]  INFO testCases.TC003_LoginTest - Wishlisting products
+16:08:39.236 [main]  INFO testCases.TC003_LoginTest - Checking details in wishlist
+16:08:41.805 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and moving to cart
+16:09:49.683 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+16:09:54.479 [main]  INFO testCases.TC003_LoginTest - Checking account name as per the registration
+16:09:55.441 [main]  INFO testCases.TC003_LoginTest - Updating profile page
+16:09:58.218 [main]  INFO testCases.TC003_LoginTest - Account updation done and saved
+16:09:58.231 [main]  INFO testCases.TC003_LoginTest - Wishlisting products
+16:10:11.103 [main]  INFO testCases.TC003_LoginTest - Checking details in wishlist
+16:10:14.291 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and moving to cart
+16:11:39.946 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+16:11:41.909 [main]  INFO testCases.TC003_LoginTest - Checking account name as per the registration
+16:11:46.919 [main]  INFO testCases.TC003_LoginTest - Updating profile page
+16:11:53.184 [main]  INFO testCases.TC003_LoginTest - Account updation done and saved
+16:11:53.184 [main]  INFO testCases.TC003_LoginTest - Wishlisting products
+16:12:07.179 [main]  INFO testCases.TC003_LoginTest - Checking details in wishlist
+16:12:09.482 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and moving to cart
+16:12:12.147 [main]  INFO testCases.TC003_LoginTest - Entering valid address details for shipping
+16:12:18.025 [main]  INFO testCases.TC003_LoginTest - Checking all the sub-links of account link is completed
+16:15:53.777 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+16:15:55.702 [main]  INFO testCases.TC003_LoginTest - Checking account name as per the registration
+16:15:56.551 [main]  INFO testCases.TC003_LoginTest - Updating profile page
+16:21:28.819 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+16:21:30.720 [main]  INFO testCases.TC003_LoginTest - Checking account name as per the registration
+16:21:31.509 [main]  INFO testCases.TC003_LoginTest - Updating profile page
+16:21:34.358 [main]  INFO testCases.TC003_LoginTest - Account updation done and saved
+16:21:34.358 [main]  INFO testCases.TC003_LoginTest - Wishlisting products
+16:21:44.617 [main]  INFO testCases.TC003_LoginTest - Checking details in wishlist
+16:21:51.199 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and moving to cart
+16:21:53.239 [main]  INFO testCases.TC003_LoginTest - Entering valid address details for shipping
+16:21:59.716 [main]  INFO testCases.TC003_LoginTest - Checking all the sub-links of account link is completed
+16:23:13.876 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
+16:28:29.798 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
+17:25:21.165 [main]  INFO testCases.TC005_SuitsPageTest - Exceeding the quantity of the product to 200 and is added to cart. Test Failed as there is no limit for product quantity
+17:29:12.818 [main]  INFO testCases.TC005_SuitsPageTest - Exceeding the quantity of the product to 200 and is added to cart. Test Failed as there is no limit for product quantity
+17:30:20.057 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
+17:31:41.065 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
+17:35:24.146 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
+17:35:27.670 [main]  INFO testCases.TC004_CartPageTest - checking all the links of cart page is completed

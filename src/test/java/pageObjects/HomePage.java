@@ -80,7 +80,7 @@ public class HomePage extends BasePage{
 	@FindBy(xpath="//*[@class=\"list-inline mb-0\"]//li[9]")
 	WebElement linkaccessories;
 	@FindBy(xpath="//*[@id=\"carouselExampleControls\"]/div/div[1]/img")
-	WebElement shopnow;
+	WebElement imgshopnow;
 	
 	public void homeoption() {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -129,7 +129,7 @@ public class HomePage extends BasePage{
 		
 	}
 	public void shop_now() {
-		shopnow.click();
+		imgshopnow.click();
 	}
 
 //SEARCH BOX AND LOGO
@@ -156,7 +156,6 @@ public class HomePage extends BasePage{
 	//PRODUCT SELECTION THROUGH SEARCH BAR
 	@FindBy(xpath="//input[@placeholder=\"Search by product\"]")
 	WebElement searchbar;
-	
 	@FindBy(xpath="//*[@class=\"suggestion-list list-unstyled\"]")
 	WebElement searchword;
 	@FindBy(xpath="//*[@id=\"carouselProduct23\"]")
@@ -169,8 +168,9 @@ public class HomePage extends BasePage{
 		
 	public void search_box(String searchingtxt) {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(15)); 
-		wait.until(ExpectedConditions.visibilityOf(searchbar)); 
-		searchingtxt ="jodhpuris";
+		wait.until(ExpectedConditions.visibilityOf(searchbar));
+		searchbar.clear();
+	//	searchingtxt ="jodhpuris";
 		action=new Actions(driver);
 		action.moveToElement(searchbar).click().sendKeys(searchingtxt).build().perform();
 		action.moveToElement(searchword).click().build().perform();	
@@ -183,7 +183,7 @@ public class HomePage extends BasePage{
 		wait.until(ExpectedConditions.visibilityOf(sizexl_of_prod_1));
 		sizexl_of_prod_1.click();
 		wait.until(ExpectedConditions.visibilityOf(buy_product1)); 
-		buy_product1.click();
+		buy_product1.click(); 
 	}
 	
 //NEGATIVE TESTING FOR SEARCH BAR
@@ -192,7 +192,7 @@ public class HomePage extends BasePage{
 	WebElement emptysearch;
 	@FindBy(xpath="//*[text()='Error retrieving suggestions']")
 	WebElement errorsearch;
-	@FindBy(xpath="//*[contains(text(),'Jodhpuris')]")
+	@FindBy(xpath="//*[@class=\"suggestion-item\"]")
 	WebElement searchcontains;
 	public String negative_test_in_search(String sreachingtxt) {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(15));
@@ -323,11 +323,13 @@ List <WebElement> usefullinks;
 	public void my_account_links() {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(15));
 		int count=myaccountlinks.size();
+		String parentWindow=driver.getWindowHandle();
 		System.out.println("Total no of links: "+ count);
 		for(int i=0;i<count;i++) {
 			wait.until(ExpectedConditions.visibilityOfAllElements(myaccountlinks));
 			System.out.println(myaccountlinks.get(i).getText());
 			myaccountlinks.get(i).click();
 			}
-}
+		driver.switchTo().window(parentWindow);
+		}
 }

@@ -36,15 +36,17 @@ public class AccountRegistrationPage extends BasePage{
 	WebElement slctgendermale;
 	@FindBy(xpath="//*[@id=\"signup\"]")
 	WebElement clicksignup;
+	@FindBy(xpath="//*[@id=\"rcrossIcon\"]")
+	WebElement closeregwindow;
 	
 	
 	public void first_name(String fstname) {
-		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.visibilityOf(txtfstname));
 		txtfstname.sendKeys(fstname);
 	}
 	public void last_name(String lstname) {
-		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.visibilityOf(txtlstname));
 		txtlstname.sendKeys(lstname);
 	}
@@ -89,10 +91,16 @@ public class AccountRegistrationPage extends BasePage{
 		slctgendermale.click(); 
 	}
 	public void sign_up() {
-		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait=new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.visibilityOf(clicksignup)); 	 
 		clicksignup.click();
+		}
+	public void close_reg_window() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.visibilityOf(closeregwindow)); 
+		closeregwindow.click();
 	}
+	
 	
 //NEGATIVE TESTING
 
@@ -103,12 +111,12 @@ public class AccountRegistrationPage extends BasePage{
 	WebElement lstnameerr;
 	
 	public String fst_name_requrd() {
-		wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.visibilityOf(fstnameerr));
 		return fstnameerr.getText();
 	}
 	public String lst_name_requrd() {
-		wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.visibilityOf(lstnameerr));
 		return lstnameerr.getText();
 	} 
@@ -117,7 +125,7 @@ public class AccountRegistrationPage extends BasePage{
 WebElement emailerr;
 
 public String email_err_msg() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(emailerr));
 	return emailerr.getText(); 
 }
@@ -128,28 +136,28 @@ WebElement pswderr;
 WebElement cnfmpswderr;
 
 public String empty_pswd() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(pswderr));
 	return pswderr.getText(); 
 }
 public String empty_cnfm_pswd() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(cnfmpswderr));
 	return cnfmpswderr.getText(); 
 }
 //4.EMPTY PASSWORD FIELD  
 public String empty_pswd_only() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(pswderr));
 	return pswderr.getText();  }
 public String cnfm_pswd_msg() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(pswderr));
 	return cnfmpswderr.getText();  
 }
 //5.EMPTY CONFIRM PASSWORD FIELD
 public String empty_cnfm_pswd_only() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(cnfmpswderr));
 	return cnfmpswderr.getText();  
 } 
@@ -157,7 +165,7 @@ public String empty_cnfm_pswd_only() {
 @FindBy(xpath="//*[@id=\"phoneError\"]")
 WebElement phnnoerr;
 public String empty_phn_no() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(phnnoerr));
 	return phnnoerr.getText();
 } 
@@ -167,14 +175,14 @@ public String empty_phn_no() {
 WebElement invalidmail;
 
 public String invalid_mail() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(invalidmail));
 	return invalidmail.getText(); 
 }
 //8.ENTERING WEAK PASSWORDS
 
 public String weak_pswd_entry() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(pswderr));
 	return pswderr.getText();
 	}
@@ -182,7 +190,7 @@ public String weak_pswd_entry() {
 
 
 public String pswd_mismatch() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(cnfmpswderr));
 	return cnfmpswderr.getText(); 
 } 
@@ -191,7 +199,7 @@ public String pswd_mismatch() {
 WebElement registeredmailid;
 
 	public String reg_mail_id() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(registeredmailid)); 
 	return registeredmailid.getText();
 		}
@@ -200,7 +208,7 @@ WebElement registeredmailid;
 WebElement splcharnames;
 
 	public String name_with_spl_char() {
-		wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.visibilityOf(splcharnames)); 
 		return splcharnames.getText();
 	}
@@ -209,7 +217,7 @@ WebElement splcharnames;
 WebElement emptylstname;
 
 public String empty_lst_name_field() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(emptylstname)); 
 	return emptylstname.getText();
 } 
@@ -224,7 +232,7 @@ public String phn_err_less_digits() {
 @FindBy(xpath="//*[@id=\"RegistartionError5\"]")
 WebElement emptygender;
 public String empty_gender_reg() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(emptygender));  
 	return emptygender.getText();
 }
@@ -234,14 +242,14 @@ public String empty_gender_reg() {
 @FindBy(xpath="//*[@id=\"RegistartionError5\"]")
 WebElement longinpstrings;
 public String long_strings() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(longinpstrings));
 	return  longinpstrings.getText(); 
 }
 
 //16.SPECIAL CHARACTERS IN PHONE NUMBER
 public String spl_char_phn_no() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(phnnoerr)); 
 	return phnnoerr.getText(); 
 }
@@ -249,7 +257,7 @@ public String spl_char_phn_no() {
 @FindBy(xpath="//*[@id=\"RegistartionError5\"]")
 WebElement regerr;
 public String regerrmsg() {
-	wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	wait =new WebDriverWait(driver,Duration.ofSeconds(15));
 	wait.until(ExpectedConditions.visibilityOf(regerr));
 	return regerr.getText(); 
 			}

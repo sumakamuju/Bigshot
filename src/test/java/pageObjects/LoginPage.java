@@ -50,7 +50,7 @@ public class LoginPage extends BasePage {
 		clickSubmit.click();
 	}
 //SIGN IN WITH OTP
-/*	@FindBy(xpath="(//a[@class=\"reg cursor\"])[1]")
+	@FindBy(xpath="(//a[@class=\"reg cursor\"])[1]")
 	WebElement forgotpswd;
 	@FindBy(xpath="//*[@id=\"emailInput\"]")
 	WebElement mailinput;
@@ -78,6 +78,10 @@ public class LoginPage extends BasePage {
 	WebElement submitbtn;
 	@FindBy(xpath="//*[@id=\"forgotbutton\"]")
 	WebElement submitmail;
+	@FindBy(xpath="//*[@id=\"otpcrossIcon\"]")
+	WebElement signclosewindow;
+	@FindBy(xpath="//*[@id=\"forgotcrossIcon\"]")
+	WebElement forgotclosewindow;
 	
 	public void sign_in_otp() {
 		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
@@ -151,20 +155,26 @@ public class LoginPage extends BasePage {
 		wait.until(ExpectedConditions.visibilityOf(submiterrmsg));
 		return submiterrmsg.getText();  
 	}
+	public void sign_with_otp_wind_close() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(signclosewindow));
+		signclosewindow.click();
+	}
+	public void forgot_wind_close() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(forgotclosewindow));
+		forgotclosewindow.click();
+	}
 	
-	
-	
-	
-/*
 	
 //ACCOUNT_DETAILS_OPTIONS
-/*	@FindBy(xpath="//*[@id=\"userMenu\"]/li[1]/a")
+	@FindBy(xpath="//*[@id=\"userMenu\"]/li[1]/a")
 	WebElement accountname;
 	@FindBy(xpath="//*[@id=\"userMenu\"]/li[2]")
-	WebElement linkaccountdetails;*/
+	WebElement linkaccountdetails;
 	@FindBy(xpath="(//*[@class=\"list-unstyled\"][@id=\"userMenu\"]/li/a)[3]")
 	WebElement linkwishlist;
-/*	@FindBy(xpath="//*[@id=\"userMenu\"]/li[4]/a")
+	@FindBy(xpath="//*[@id=\"userMenu\"]/li[4]/a")
 	WebElement linkorders;
 	@FindBy(xpath="//*[@id=\"userMenu\"]/li[5]")
 	WebElement linkaddresses;
@@ -175,7 +185,7 @@ public class LoginPage extends BasePage {
 	
 	
 //AFTER LOGIN 	
-/*	public String account_name()
+	public String account_name()
 	{
 		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.visibilityOf(accountname));
@@ -187,14 +197,14 @@ public class LoginPage extends BasePage {
 		WebDriverWait accdetails=new WebDriverWait(driver,Duration.ofSeconds(10));
 		accdetails.until(ExpectedConditions.visibilityOf(linkaccountdetails));
 		linkaccountdetails.click();
-	}*/
+	}
 	public void wishlist()
 	{
 		WebDriverWait wishlist=new WebDriverWait(driver,Duration.ofSeconds(15));
 		wishlist.until(ExpectedConditions.visibilityOf(linkwishlist));
 		linkwishlist.click(); 
 	}
-/*	public void orders() {
+	public void orders() {
 		 WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(15)); 
 		wait.until(ExpectedConditions.elementToBeClickable(linkorders));
 		 linkorders.click();
@@ -209,9 +219,9 @@ public class LoginPage extends BasePage {
 		logout.until(ExpectedConditions.visibilityOf(linklogout));
 		linklogout.click();
 	}
-	*/
+	
 //PROFILE PAGE OR ACCOUNT DETAILS PAGE
-/*	@FindBy(xpath="//*[@class=\"profile_left\"]/h5")
+	@FindBy(xpath="//*[@class=\"profile_left\"]/h5")
 	WebElement prfacc_username;
 	@FindBy(xpath="//*[@class=\"nav-link\"]")
 	WebElement toreset_password;
@@ -224,7 +234,9 @@ public class LoginPage extends BasePage {
 	@FindBy(xpath="//*[@id=\"dateOfBirth\"]")
 	WebElement dateofbirth; 
 	@FindBy(xpath="//*[@id=\"maleOption\"]")
-	WebElement btngender;
+	WebElement btngendermale;
+	@FindBy(xpath="//*[@id=\"femaleOption\"]")
+	WebElement btngenderfemale; 
 	@FindBy(xpath="//*[@id=\"custom-dropdown-primary\"]")
 	WebElement country_code; 
 	@FindBy(xpath="//*[text()='+91']")
@@ -247,27 +259,32 @@ public class LoginPage extends BasePage {
 		wait.until(ExpectedConditions.visibilityOf(toreset_password));
 		toreset_password.click();
 	}
-	public void txtfirst_name() {
+	public void txtfirst_name(String name) {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(enterfirst_name));
 		enterfirst_name.clear();
-		enterfirst_name.sendKeys("palivelasridhar1");
+		enterfirst_name.sendKeys(name); 
 	}
-	public void last_name() {
+	public void last_name(String lastname) {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(txtlastname));
 		txtlastname.clear();
-		txtlastname.sendKeys("kumar"); 
+		txtlastname.sendKeys(lastname); 
 	}
-	public void date_of_birth() {
+	public void date_of_birth(String dob) { 
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(dateofbirth));
-		dateofbirth.sendKeys("15-08-1990"); 
+		dateofbirth.sendKeys(dob); 
 	}
-	public void selectgender() {
+	public void select_male_gender() {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.visibilityOf(btngender));		
-		btngender.click(); 
+		wait.until(ExpectedConditions.visibilityOf(btngendermale));		
+		btngendermale.click();  
+	}
+	public void select_female_gender() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.visibilityOf(btngenderfemale));		
+		btngenderfemale.click();    
 	}
 	public void country_drop_down() {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -293,23 +310,8 @@ public class LoginPage extends BasePage {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(cancel));
 		cancel.click();
-	}*/
+	}
 	
-//WISHLISTING PRODUCTS
-/*	@FindBy(xpath="//*[@class=\"list-inline mb-0\"]/li[2]")
-	WebElement linksuits;
-	@FindBy(xpath="(//*[@id=\"Layer_1\"])[5]")
-	WebElement suit5;
-	@FindBy(xpath="//*[@class=\"list-inline mb-0\"]/li[3]")
-	WebElement linkjodhpuris;
-	@FindBy(xpath="(//*[@id=\"Layer_1\"])[3]")
-	WebElement jodhpuri3;
-	@FindBy(xpath="(//*[@id=\"Layer_1\"])[5]")
-	WebElement jodhpuri5;
-	@FindBy(xpath="//*[@class=\"list-inline mb-0\"]/li[4]")
-	WebElement linkkurtapajmas;
-	@FindBy(xpath="(//*[@id=\"Layer_1\"])[2]")
-	WebElement kurta2;*/
 	
 //IN WISHLIST PAGE
 	@FindBy(xpath="//*[@id=\"wishlist-count\"]")
@@ -318,43 +320,6 @@ public class LoginPage extends BasePage {
 	List <WebElement> productnames;
 	@FindBy(xpath="(//*[@class=\"pad_bot_2 pt-0 w-100 pe-0\"])[1]")
 	WebElement productname;
-	
-	
-/*	public void clicksuits()
-	{
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(linksuits));
-		linksuits.click();
-	}
-	public void selectsuit() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(suit5));
-		suit5.click();
-	}
-	public void clickjodhpuri() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(linkjodhpuris));
-	linkjodhpuris.click();}
-	
-	public void selectjodhpuri3() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(jodhpuri3));
-		jodhpuri3.click();
-	}
-	public void selectjodhpiri5() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(jodhpuri5));
-	jodhpuri5.click();}
-	
-	public void clickkurtapajamas() {  
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(linkkurtapajmas));
-	linkkurtapajmas.click();}
-	public void selectkurta() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(kurta2));
-		kurta2.click(); 
-	}*/
 	
 	public String wishlist_count() {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -378,39 +343,10 @@ public class LoginPage extends BasePage {
 		return productname.getText();
 	}
 	
-//NEGTIVE TESTING
-//1. WISHLISTING PRODUCT WITHOUT LOGIN
-@FindBy(xpath="(//*[@id=\"Layer_1\"])[3]")
-WebElement wishlistproduct17;
-@FindBy(xpath="//*[text()='Sign in']")
-WebElement loginpromptmsg;
-
-public void slct_pro_17() {
- 	wait=new WebDriverWait(driver,Duration.ofSeconds(15));
-	wait.until(ExpectedConditions.visibilityOf(wishlistproduct17));
-	wishlistproduct17.click();
-}
-
-public String login_prompt_msg() {
-	wait=new WebDriverWait(driver,Duration.ofSeconds(15));
-	wait.until(ExpectedConditions.visibilityOf(loginpromptmsg));
-	System.out.println(loginpromptmsg.getText());
-	return loginpromptmsg.getText(); 
-}
-//2. Add same product multiple times
-@FindBy(xpath="(//*[@id=\"Layer_1\"])[1]")
-WebElement wishlistproduct18;
-public void slct_pro_18() {
-	wait=new WebDriverWait(driver,Duration.ofSeconds(15));
-	wait.until(ExpectedConditions.visibilityOf(wishlistproduct18));
-	wishlistproduct18.click();
-}
 
 
-	
-	
-	//TO ORDER FROM WISHLIST
-/*	@FindBy(xpath="//*[@class=\"d-block w-100\"][@alt=\"Formal 3-piece suit\"]")
+//TO ORDER FROM WISHLIST
+	@FindBy(xpath="//*[@class=\"d-block w-100\"][@alt=\"Formal 3-piece suit\"]")
 	WebElement dress1;
 	@FindBy(xpath="//*[@id=\"sizeList10\"]/li[3]")
 	WebElement dress1_sizelarge;
@@ -484,130 +420,54 @@ public void slct_pro_18() {
 	 WebElement okbutton;
 	 
 //ADDING ADDRESS	 
-/*	 public void click_to_add_addrs() {
-			wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-			wait.until(ExpectedConditions.visibilityOf(add_new_addrs)); 
-		 add_new_addrs.click();
-	 }
-	 public void name_in_addrs() {
-		 wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-			wait.until(ExpectedConditions.visibilityOf(name));
-		 name.sendKeys("Sridhar");
-	 }
-	 public void country_in_addrs() {
-		 wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(country));
-		 country.click(); 
-		 Select s=new Select(country);
-		 s.selectByVisibleText("India");
-	 }
-	public void state_in_addrs() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(state));
-		state.sendKeys("Telanagana");
-	}
-	public void city_in_addrs() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(city));
-		city.sendKeys("Hyderbad");
-		}
-	public void picode_in_addrs() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(pincode));
-		pincode.sendKeys("500045");
-	}
-	public void address_in() {
-		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
-		wait.until(ExpectedConditions.visibilityOf(address));
-		address.sendKeys("h.no:32, rajeev nagar, s r nagar.");
-	}
-	public void countrycode_in_addrs() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(countrycode));
-		countrycode.click();
-		slctcode.click();
-	}
-	public void phn_number() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(phnno));
-		phnno.sendKeys("0123456789");
-	}
-	public void addrs_type() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(addrstype));
-		addrstype.click();
-	}
-	public void default_addrs() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(makedefaultaddrs));
-		makedefaultaddrs.click();
-	}
-	public void save_addrs() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(saveaddrs));
-		saveaddrs.click();
-	}
-	public void cancel_given_details() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(canceldetails));
-		canceldetails.click(); 
-	}
-	public void ok_button() {
-		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
-		wait.until(ExpectedConditions.visibilityOf(okbutton)); 
-		okbutton.click();
-	}  */
-	 
-/*	 
-//ADD NEW ADDRESS IN ANOTHER ACCOUNT
 	 public void click_to_add_addrs() {
-			wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-			wait.until(ExpectedConditions.visibilityOf(add_new_addrs)); 
-		 add_new_addrs.click();
-	 }
-	 public void name_in_addrs() {
+		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(add_new_addrs)); 
+		add_new_addrs.click();
+	 } 
+	 public void name_in_addrs(String addrsname) {
 		 wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-			wait.until(ExpectedConditions.visibilityOf(name));
-		 name.sendKeys("SUMA");
+		 wait.until(ExpectedConditions.visibilityOf(name));
+		 name.sendKeys(addrsname); 
 	 }
-	 public void country_in_addrs() {
+	 public void country_in_addrs(String cntry) {
 		 wait= new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(country));
 		 country.click(); 
 		 Select s=new Select(country);
-		 s.selectByVisibleText("India");
+		 s.selectByVisibleText(cntry);  
 	 }
-	public void state_in_addrs() {
+	public void state_in_addrs(String statename) {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(state));
-		state.sendKeys("Telanagana");
-	}
-	public void city_in_addrs() {
+		state.sendKeys(statename);
+	}   
+	public void city_in_addrs(String cityname) {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
 		wait.until(ExpectedConditions.visibilityOf(city));
-		city.sendKeys("HYDERABAD");
+		city.sendKeys(cityname); 
 		}
-	public void picode_in_addrs() {
+	public void picode_in_addrs(String pincde) {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
 		wait.until(ExpectedConditions.visibilityOf(pincode));
-		pincode.sendKeys("500092");
-	}
-	public void address_in() {
+		pincode.sendKeys(pincde);
+	} 
+	public void address_in(String Hno) {
 		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.visibilityOf(address));
-		address.sendKeys("H.NO:8-16, HEMANAGAR, BODUPPAL.");
-	}
+		address.sendKeys(Hno);
+	} 
 	public void countrycode_in_addrs() {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
 		wait.until(ExpectedConditions.visibilityOf(countrycode));
 		countrycode.click();
 		slctcode.click();
 	}
-	public void phn_number() {
+	public void phn_number(String phn) {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
 		wait.until(ExpectedConditions.visibilityOf(phnno));
-		phnno.sendKeys("0123456789");
-	}
+		phnno.sendKeys(phn);
+	} 
 	public void addrs_type() {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
 		wait.until(ExpectedConditions.visibilityOf(addrstype));
@@ -632,7 +492,9 @@ public void slct_pro_18() {
 		wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
 		wait.until(ExpectedConditions.visibilityOf(okbutton)); 
 		okbutton.click();
-	}
+	}  
+	 
+	 
 
 	//NEGATIVE TESTING
 	
@@ -695,9 +557,35 @@ public void slct_pro_18() {
 				wait= new WebDriverWait(driver,Duration.ofSeconds(10)); 
 				wait.until(ExpectedConditions.visibilityOf(invalidpswdmsg));
 			return invalidpswdmsg.getText();
-			} */
+			} 
 			
+			//NEGTIVE TESTING
+			//1. WISHLISTING PRODUCT WITHOUT LOGIN
+			@FindBy(xpath="(//*[@id=\"Layer_1\"])[3]")
+			WebElement wishlistproduct17;
+			@FindBy(xpath="//*[text()='Sign in']")
+			WebElement loginpromptmsg;
 
+			public void slct_pro_17() {
+			 	wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+				wait.until(ExpectedConditions.visibilityOf(wishlistproduct17));
+				wishlistproduct17.click();
+			}
+
+			public String login_prompt_msg() {
+				wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+				wait.until(ExpectedConditions.visibilityOf(loginpromptmsg));
+				System.out.println(loginpromptmsg.getText());
+				return loginpromptmsg.getText(); 
+			}
+			//2. Add same product multiple times
+			@FindBy(xpath="(//*[@id=\"Layer_1\"])[1]")
+			WebElement wishlistproduct18;
+			public void slct_pro_18() {
+				wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+				wait.until(ExpectedConditions.visibilityOf(wishlistproduct18));
+				wishlistproduct18.click();
+			}
 	
 	
 	

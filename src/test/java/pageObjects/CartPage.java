@@ -14,7 +14,7 @@ public class CartPage extends BasePage{
 	public CartPage(WebDriver driver) {
 		super(driver);
 	}
-/*	 @FindBy(xpath="//*[@id=\"cart-items\"]")
+	 @FindBy(xpath="//*[@id=\"cart-items\"]")
 	 List <WebElement> cartitems;
 	 @FindBy(xpath="//*[@class=\"qty-plus\"]")
 	 WebElement addquantity;
@@ -41,7 +41,10 @@ public class CartPage extends BasePage{
 	 WebElement plcorder;
 	 @FindBy(xpath="//*[@class=\"swal2-actions\"]/button[1]")
 	 WebElement fnlconfirmation;
-	 
+	 @FindBy(xpath="(//*[@class=\"remove_items moveto_wishlists remove_cart\"])[4]")
+	 WebElement removepro;
+	 @FindBy(xpath="//*[text()=\"Yes, remove it!\"]")
+	 WebElement cartremovalconfrm;
 	
 	public void cart_list() {
 		 wait=new WebDriverWait(driver,Duration.ofSeconds(15));
@@ -135,7 +138,21 @@ public class CartPage extends BasePage{
 		 wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 		 wait.until(ExpectedConditions.visibilityOf(fnlconfirmation));
 		fnlconfirmation.click(); 
-	} */
+	} 
+	public void remove_pro_cart() {
+		 wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		 wait.until(ExpectedConditions.visibilityOf(removepro));
+		removepro.click();;
+	}
+	public void confirm_removal() {
+		 wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		 wait.until(ExpectedConditions.visibilityOf(cartremovalconfrm));
+		cartremovalconfrm.click(); 
+	}
+	
+	
+}
+	/*
 
 //CART PAGE OF ANOTHER ACCOUNT
 	@FindBy(xpath="(//*[@class=\"add_cart mb-4\"]//h2)[1]")
@@ -269,6 +286,6 @@ public void delete_item() {
 	del_item.click();
 	cofrm_msg.click(); 
 }
-	 
 	
-}
+	
+}*/
