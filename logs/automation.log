@@ -46,3 +46,6 @@
 17:31:41.065 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
 17:35:24.146 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
 17:35:27.670 [main]  INFO testCases.TC004_CartPageTest - checking all the links of cart page is completed
+11:19:23.945 [main]  INFO testCases.TC001_HomePageTest - Checking all the links of HomePage
+11:19:37.739 [main]  INFO testCases.TC001_HomePageTest - Login with valid email id and password
+11:19:45.509 [main]  INFO testCases.TC001_HomePageTest - Checking all the link of the HomePage

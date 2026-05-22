@@ -27,7 +27,7 @@ public class TC004_CartPageTest extends BaseClass{
 	//	cp.cart_list(); 
 		//cp.cart_pricesummary(); 
 		//cp.subtotalofdresses();	
-		//cp.itemprice();
+		//cp.itemprice(); 
 		
 		int subtotalofitems=cp.subtotalofdresses();
 		int totalpriceofitems=cp.itemprice();

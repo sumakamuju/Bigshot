@@ -103,6 +103,133 @@ public class Suitspage extends BasePage {
 		suit_2_size.click();
 		add_suit2_to_cart.click();}
 
+//FILTER OPTIONS CHECKING
+	@FindBy(xpath="//*[@id=\"headingTwo\"]")
+	WebElement fltrclr;
+	@FindBy(xpath="(//ul[@id=\"colorFilter\"]//li//input)[3]")
+	WebElement clrgrey;
+	@FindBy(xpath="//*[@id=\"color_18\"]")
+	WebElement clrblack;
+	@FindBy(xpath="//*[@id=\"carouselProduct5\"]")
+	WebElement product_4;
+	@FindBy(xpath="//*[@class=\"d-inline size-options\"]//span[1]")
+	WebElement smallsize_4;
+	@FindBy(xpath="//*[@class=\"addtobag_btn content_center_flex me-2\"]")
+	WebElement addtocart4;
+	@FindBy(xpath="//*[@id=\"color_17\"]")
+	WebElement clrwhite;
+	@FindBy(xpath="//*[@id=\"carouselProduct6\"]")
+	WebElement product_6;
+	@FindBy(xpath="//*[@class=\"d-inline size-options\"]//span[2]")
+	WebElement mediumsize_6;
+	@FindBy(xpath="//*[@class=\"addtobag_btn content_center_flex me-2\"]")
+	WebElement addtocart6;
+	@FindBy(xpath="//*[@id=\"headingThree\"]")
+	WebElement fltrsize;
+	@FindBy(xpath="//*[@id=\"sizeFilter\"]//li[5]//input")
+	WebElement sizexl;
+	@FindBy(xpath="//h2[@id=\"headingMaterials\"]//button")
+	WebElement fltrfabric;
+	@FindBy(xpath="//*[@id=\"material_9\"]")
+	WebElement terryrayon;
+	@FindBy(xpath="//*[@id=\"carouselProduct10\"]")
+	WebElement slct_pro_10;
+	@FindBy(xpath="//*[@data-sizename=\"XL/42\"]")
+	WebElement pro_10_size_xl;
+	@FindBy(xpath="//*[@class=\"addtobag_btn content_center_flex me-2\"]")
+	WebElement buy_now_10;
+	
+	public void fltr_color() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));	
+		wait.until(ExpectedConditions.visibilityOf(fltrclr));
+		fltrclr.click();
+		}
+	public void click_grey() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(clrgrey));
+		clrgrey.click();
+	}
+	public void click_black() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(clrblack));
+		clrblack.click();
+	}
+	public void select_product_4() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(product_4));
+		product_4.click();
+	}
+	public void click_product_4_small() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(smallsize_4));
+		smallsize_4.click(); 
+	}
+	public void click_addtocart_4() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(addtocart4));
+		addtocart4.click(); 
+	}
+	public void click_white() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(clrwhite));
+		clrwhite.click();
+	}
+	public void select_product6() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(product_6));
+		product_6.click();
+	}
+	public void click_product_6_medium() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(mediumsize_6));
+		mediumsize_6.click();
+	}
+	public void click_add_to_cart_6() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(addtocart6));
+		addtocart6.click(); 
+	}
+	public void fltr_size() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(fltrsize));
+		fltrsize.click(); 
+	} 
+	public void click_size_xl() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(sizexl));
+		sizexl.click(); 
+	} 
+	public void click_fabric() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(fltrfabric));
+		fltrfabric.click(); 
+	}
+	public void slct_terryrayon() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(terryrayon));
+		terryrayon.click(); 
+	}
+	public void slct_product_10() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(slct_pro_10));
+		slct_pro_10.click(); 
+	}
+	public void pro_10_size_xl() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(pro_10_size_xl));
+		pro_10_size_xl.click(); 
+	}
+	public void pro_10_buynow() {
+		wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(buy_now_10));
+		buy_now_10.click();
+	}
+	
+	
+	
+	
+	
+	
 //NEGATIVE TESTING
 //1.Increasing the quantity of the product
 @FindBy(xpath="//*[@id=\"carouselProduct13\"]")

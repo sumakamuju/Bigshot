@@ -52,7 +52,7 @@ public class TC001_HomePageTest extends BaseClass{
 		logger.info("Checking neagtive testing in search bar");
 //NEAGTIVE TESTING FOR SEARCH BAR
 //1.EMPTY SEARCH
-		hp.negative_test_in_search("      ");
+		hp.negative_test_in_search("      "); 
 		Assert.assertEquals(hp.searchmsg_1(),"No suggestions found");
 		System.out.println("validation message verified");
 		logger.info("empty search failed with no suggestions found message");

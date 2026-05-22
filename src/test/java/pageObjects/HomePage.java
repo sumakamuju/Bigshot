@@ -58,7 +58,7 @@ public class HomePage extends BasePage{
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 	    WebElement  clickRegister= wait.until(ExpectedConditions.elementToBeClickable(linkRegister));		
 		clickRegister.click();	 
-		}
+		} 
 
 //TOP CONTAINER OPTIONS
 	@FindBy(xpath="//*[@class=\"list-inline mb-0\"]//li[1]")
