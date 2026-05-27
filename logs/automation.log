@@ -1,0 +1,51 @@
+15:19:24.566 [main]  INFO testCases.TC003_LoginTest - Account updation done and saved
+15:36:33.482 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+15:36:34.738 [main]  INFO testCases.TC003_LoginTest - Wishlisting products
+15:36:54.373 [main]  INFO testCases.TC003_LoginTest - Checking details in wishlist
+15:36:56.890 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and moving to cart
+16:08:22.781 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+16:08:24.610 [main]  INFO testCases.TC003_LoginTest - Checking account name as per the registration
+16:08:25.706 [main]  INFO testCases.TC003_LoginTest - Updating profile page
+16:08:28.415 [main]  INFO testCases.TC003_LoginTest - Account updation done and saved
+16:08:28.417 [main]  INFO testCases.TC003_LoginTest - Wishlisting products
+16:08:39.236 [main]  INFO testCases.TC003_LoginTest - Checking details in wishlist
+16:08:41.805 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and moving to cart
+16:09:49.683 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+16:09:54.479 [main]  INFO testCases.TC003_LoginTest - Checking account name as per the registration
+16:09:55.441 [main]  INFO testCases.TC003_LoginTest - Updating profile page
+16:09:58.218 [main]  INFO testCases.TC003_LoginTest - Account updation done and saved
+16:09:58.231 [main]  INFO testCases.TC003_LoginTest - Wishlisting products
+16:10:11.103 [main]  INFO testCases.TC003_LoginTest - Checking details in wishlist
+16:10:14.291 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and moving to cart
+16:11:39.946 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+16:11:41.909 [main]  INFO testCases.TC003_LoginTest - Checking account name as per the registration
+16:11:46.919 [main]  INFO testCases.TC003_LoginTest - Updating profile page
+16:11:53.184 [main]  INFO testCases.TC003_LoginTest - Account updation done and saved
+16:11:53.184 [main]  INFO testCases.TC003_LoginTest - Wishlisting products
+16:12:07.179 [main]  INFO testCases.TC003_LoginTest - Checking details in wishlist
+16:12:09.482 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and moving to cart
+16:12:12.147 [main]  INFO testCases.TC003_LoginTest - Entering valid address details for shipping
+16:12:18.025 [main]  INFO testCases.TC003_LoginTest - Checking all the sub-links of account link is completed
+16:15:53.777 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+16:15:55.702 [main]  INFO testCases.TC003_LoginTest - Checking account name as per the registration
+16:15:56.551 [main]  INFO testCases.TC003_LoginTest - Updating profile page
+16:21:28.819 [main]  INFO testCases.TC003_LoginTest - login through registered mail id
+16:21:30.720 [main]  INFO testCases.TC003_LoginTest - Checking account name as per the registration
+16:21:31.509 [main]  INFO testCases.TC003_LoginTest - Updating profile page
+16:21:34.358 [main]  INFO testCases.TC003_LoginTest - Account updation done and saved
+16:21:34.358 [main]  INFO testCases.TC003_LoginTest - Wishlisting products
+16:21:44.617 [main]  INFO testCases.TC003_LoginTest - Checking details in wishlist
+16:21:51.199 [main]  INFO testCases.TC003_LoginTest - Selecting dresses and moving to cart
+16:21:53.239 [main]  INFO testCases.TC003_LoginTest - Entering valid address details for shipping
+16:21:59.716 [main]  INFO testCases.TC003_LoginTest - Checking all the sub-links of account link is completed
+16:23:13.876 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
+16:28:29.798 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
+17:25:21.165 [main]  INFO testCases.TC005_SuitsPageTest - Exceeding the quantity of the product to 200 and is added to cart. Test Failed as there is no limit for product quantity
+17:29:12.818 [main]  INFO testCases.TC005_SuitsPageTest - Exceeding the quantity of the product to 200 and is added to cart. Test Failed as there is no limit for product quantity
+17:30:20.057 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
+17:31:41.065 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
+17:35:24.146 [main]  INFO testCases.TC004_CartPageTest - Checking details in the cart page
+17:35:27.670 [main]  INFO testCases.TC004_CartPageTest - checking all the links of cart page is completed
+11:19:23.945 [main]  INFO testCases.TC001_HomePageTest - Checking all the links of HomePage
+11:19:37.739 [main]  INFO testCases.TC001_HomePageTest - Login with valid email id and password
+11:19:45.509 [main]  INFO testCases.TC001_HomePageTest - Checking all the link of the HomePage

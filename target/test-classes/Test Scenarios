@@ -1,0 +1,563 @@
+NEGATIVE TESTING 
+
+FOR LOGIN:
+1.Empty Login credentials
+2.Invalid email & valid password
+3.Valid email & invalid password
+
+SIGN WITH OTP
+1.Entering unregistered mail id
+2.Entering unregistered mobile number
+
+FORGOT PASSWORD 
+1.Entering unregistered mail id
+2.Empty email/mobile field 
+3.Invalid email format
+4.Spaces before email
+   
+   
+SEARCH BAR
+1.Empty search field
+2.Search with special characters input
+3.With lower case characters
+4.Without space between words
+5.With wrong spelling
+6.With 2 or more leading space before word
+7.With 2 or more trailing space after word
+8.With mixed case words
+9.With numbers in search
+10.With typo search
+
+REGISTRATION NEAGTIVE TEST CASES:
+1.Leaving first name and last name fields empty
+2.Leaving mail id field empty
+3.Empty passwords fields
+4.Empty password field
+5.Empty confirm password field
+6.Empty phone number
+7.Entering invalid mail id format
+8.Entering weak passwords
+9.Password and confirm password mismatch
+10.Register with already existing email
+11.Use special characters in name fields
+12.Entering only first name without last name
+13.Entering phone number with less than 10 digits
+14.Empty gender field 
+15.Enter extremely long input strings
+16.Special characters in phone number
+17.Phone number with more than 10 digits
+
+WHISHLIST PAGE
+1.Add product to wishlist without login 
+2. Add same product multiple times
+
+PRODUCT PAGE
+1.Exceeding the quantity of the product
+
+
+
+
+Negative Test Cases for Wishlist Page
+| Test Case ID | Scenario                                                 | Test Data                   | Expected Result                               |
+| ------------ | -------------------------------------------------------- | --------------------------- | --------------------------------------------- |
+| WL_NEG_001   | Add product to wishlist without login                    | Guest user                  | System should redirect to login/signup page   |
+| WL_NEG_002   | Add unavailable/out-of-stock product to wishlist         | Out-of-stock item           | Proper validation/error message should appear |
+| WL_NEG_003   | Add same product multiple times                          | Same product repeatedly     | Product should not duplicate in wishlist      |
+| WL_NEG_004   | Remove product not present in wishlist                   | Invalid product             | System should handle gracefully without crash |
+| WL_NEG_005   | Access wishlist URL directly without authentication      | Direct URL hit              | User should be redirected to login            |
+| WL_NEG_006   | Add wishlist item when internet connection is lost       | Network disconnected        | Proper error/timeout message displayed        |
+| WL_NEG_007   | Wishlist limit exceeded                                  | Max items + 1               | Validation message should appear              |
+| WL_NEG_008   | Add invalid product ID through API/UI manipulation       | Invalid ID                  | System should reject request                  |
+| WL_NEG_009   | Session expired while using wishlist                     | Expired token/session       | User should be redirected to login            |
+| WL_NEG_010   | Remove item during server delay/refresh                  | Multiple rapid clicks       | No duplicate actions or crash                 |
+| WL_NEG_011   | Wishlist button disabled product                         | Disabled product            | Wishlist action should not work               |
+| WL_NEG_012   | Add deleted product to wishlist                          | Removed product             | Appropriate error shown                       |
+| WL_NEG_013   | SQL/script injection in wishlist notes/comments          | `<script>alert(1)</script>` | Input should be sanitized                     |
+| WL_NEG_014   | Open wishlist in multiple tabs and modify simultaneously | Multi-tab operations        | Data consistency maintained                   |
+| WL_NEG_015   | Wishlist page refresh during add/remove action           | Browser refresh             | No inconsistent data                          |
+| WL_NEG_016   | Unauthorized API call for wishlist                       | Invalid token               | API should return 401/403                     |
+| WL_NEG_017   | Add product with missing mandatory fields                | Corrupted product data      | System should reject gracefully               |
+| WL_NEG_018   | Browser back/forward navigation issue                    | Navigation actions          | Wishlist state should remain correct          |
+| WL_NEG_019   | Very slow response from server                           | Throttled network           | Loading indicator/error handling works        |
+| WL_NEG_020   | Wishlist page with unsupported browser                   | Old browser version         | Proper compatibility handling/message         |
+
+
+
+
+
+3. Product Page
+Access deleted/discontinued product URL
+Manipulate product ID in URL
+Add out-of-stock product to cart
+Add negative quantity
+Add extremely large quantity
+Select unavailable size/color combinations
+Broken image handling
+Invalid review submission
+
+4. Shopping Cart
+Add duplicate items repeatedly
+Add zero quantity
+Update quantity with alphabets/special chars
+Remove item already removed
+Cart persistence after logout/login
+Cart behavior across browsers/devices
+Price tampering through browser dev tools
+Modify hidden fields
+5. Checkout Process
+Address Validation
+Invalid ZIP/postal code
+Unsupported country/state combination
+Empty shipping fields
+Special characters in address
+Payment Negative Cases
+Expired card
+Invalid CVV
+Insufficient balance
+Invalid card number
+Payment gateway timeout
+Duplicate payment submission
+Refresh browser during payment
+Cancel payment midway
+Invalid UPI/Wallet credentials
+6. Coupon & Discount Validation
+Expired coupon usage
+Invalid coupon code
+Apply same coupon multiple times
+Coupon below minimum order value
+Tamper coupon request in API
+Combine incompatible offers
+7. Order Management
+Cancel shipped/delivered order
+Return request after return window
+Download invoice for unauthorized order
+Access another user's order via URL manipulation
+8. Security Negative Testing
+Input Validation
+SQL Injection
+Cross-Site Scripting (XSS)
+CSRF attacks
+Command injection
+File upload vulnerabilities
+
+
+Forgot Password – Negative Test Cases
+Email / Mobile Input Validation
+
+
+| Test Case                           | Expected Result                                           |
+| ----------------------------------- | --------------------------------------------------------- |
+| Empty email/mobile field            | Validation message displayed                              |
+| Invalid email format (`abc@`)       | Error shown                                               |
+| Invalid phone number length         | Error shown                                               |
+| Special characters in phone number  | Rejected                                                  |
+| Spaces before/after email           | Trim or validation error                                  |
+| Non-registered email/mobile         | Generic error message without revealing account existence |
+| SQL injection input (`' OR 1=1 --`) | Input sanitized                                           |
+| Script injection (`<script>`)       | Prevent XSS                                               |
+| Very long input string              | Handled gracefully                                        |
+| Unicode/emojis in input             | Validation error                                          |
+
+Password Validation
+
+| Test Case                              | Expected Result             |
+| -------------------------------------- | --------------------------- |
+| Empty password                         | Validation error            |
+| Weak password                          | Policy error                |
+| Password below minimum length          | Rejected                    |
+| Password without special chars         | Rejected if policy requires |
+| Password and confirm password mismatch | Error shown                 |
+| Old password reused                    | Prevented                   |
+| Password with spaces only              | Rejected                    |
+| Extremely long password                | Handled safely              |
+| SQL/script input as password           | Safely handled              |
+Sign In with OTP – Negative Test Cases
+Mobile/Email Validation
+| Test Case                    | Expected Result  |
+| ---------------------------- | ---------------- |
+| Empty mobile/email           | Validation error |
+| Invalid email/mobile format  | Error shown      |
+| Unregistered user            | Generic message  |
+| Special characters in mobile | Rejected         |
+| Spaces in OTP login field    | Trim or reject   |
+| SQL injection attempts       | Sanitized        |
+| XSS payload input            | Blocked          |
+
+OTP Generation & Delivery
+
+| Test Case                       | Expected Result     |
+| ------------------------------- | ------------------- |
+| OTP not delivered               | Retry/resend option |
+| OTP delayed                     | Informative message |
+| Multiple OTP requests quickly   | Rate limit          |
+| Old OTP used after resend       | Invalid             |
+| OTP generated for blocked user  | Denied              |
+| OTP sent after account deletion | Should fail         |
+OTP Verification
+| Test Case                          | Expected Result  |
+| ---------------------------------- | ---------------- |
+| Incorrect OTP                      | Error shown      |
+| Expired OTP                        | Expired message  |
+| Empty OTP field                    | Validation error |
+| OTP shorter/longer than expected   | Validation error |
+| Alphanumeric OTP for numeric field | Rejected         |
+| Reuse of OTP                       | Blocked          |
+| Multiple wrong attempts            | Temporary lock   |
+| OTP entered after logout           | Invalid          |
+| OTP from another account used      | Rejected         |
+OTP / Reset Link Issues
+| Test Case                              | Expected Result           |
+| -------------------------------------- | ------------------------- |
+| Expired OTP/reset link                 | Expiration error          |
+| Already used reset link                | Invalid/used link message |
+| Wrong OTP entered                      | Error shown               |
+| Partial OTP entered                    | Validation error          |
+| Alphanumeric OTP when numeric expected | Validation error          |
+| Multiple incorrect OTP attempts        | Account cooldown/lock     |
+| OTP reused after success               | Rejected                  |
+| OTP sent to old email after update     | Should not work           |
+| Manipulated reset URL token            | Invalid token error       |
+
+
+ @TC76
+  Scenario: Verify the add product quantity (1) in Shopping Cart page details & confirm the order
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    And User should see the product details like name, size, and price
+    And User should see the shipping address with name, address, and phone number
+    And User clicks on the + (Add) button
+    And The product quantity should increase by 1
+    Then Total Amount should be correctly calculated Price and SubTotal Amount
+    Then Total Amount should be correctly calculated
+    When User clicks on CONFIRM ORDER button
+    Then User clicks on Place ORDER button
+    Then Order confirmation process should be initiated
+  Given User enters the "https://dev.bigshotonline.com/"          # stepdefinations.RegisterSteps.user_enters_the(java.lang.String)
+  When User MouseHover Account                                    # stepdefinations.RegisterSteps.user_mouse_hover_account()
+  And User click on Login Button                                  # stepdefinations.LoginSteps.user_click_on_login_button()
+  And User enters  valid Mailid as "sridharp@newmeksolutions.com"     # stepdefinations.LoginSteps.user_enters_valid_mailid_as(java.lang.String)
+  And User enters  valid Password as "Sridhar@1993"                                             # stepdefinations.LoginSteps.user_enters_valid_password_as(java.lang.String)
+  And User clicks the SignIn button                                                              # stepdefinations.LoginSteps.user_clicks_the_sign_in_button()
+  And User hovers over the profile icon                                                         # stepdefinations.ProfileSteps.user_hovers_over_the_profile_icon()
+  And User clicks on Wishlist                                                                   # stepdefinations.ProfileSteps.user_clicks_on_wishlist()
+  And User select the size                                                                      # stepdefinations.WishListSteps.user_select_the_size()
+  And User clicks on Move to Cart for a product                                                 # stepdefinations.WishListSteps.user_clicks_on_move_to_cart_for_a_product()
+Displayed Actual message: Item added to cart successfully.
+Displayed expected message: Item added to cart successfully.
+  Then User sees an message as Item added to cart successfully                                  # stepdefinations.WishListSteps.user_sees_an_message_as_item_added_to_cart_successfully()
+  When User navigates to the Shopping Cart page                                                 # stepdefinations.CartSteps.user_navigates_to_the_shopping_cart_page()
+Shopping Bag
+1 Item
+  Then User should see the Shopping Bag title                                                   # stepdefinations.CartSteps.user_should_see_the_shopping_bag_title()
+DESIGNER SUITS
+S/36
+M/38
+L/40
+XL/42
+XXL/44
+Customize
+Price : ₹ 17999 Sub Total : ₹ 17999
+Expected Delivery by 21 May 2026
+7 days exchange available in India only.
+MOVE TO WISHLIST
+  And User should see the product details like name, size, and price                            # stepdefinations.CartSteps.user_should_see_the_product_details_like_name_size_and_price()
+Shipping Address :
+businaveenkalyannaiduss
+102/b/6 srnagar, India - 500048
++91 - 9865748777
+  And User should see the shipping address with name, address, and phone number                 # stepdefinations.CartSteps.user_should_see_the_shipping_address_with_name_address_and_phone_number()
+  And User clicks on the + (Add) button                                                         # stepdefinations.CartSteps.user_clicks_on_the_add_button()
+
+Product quantity: 2
+  And The product quantity should increase by 1                                                 # stepdefinations.CartSteps.the_product_quantity_should_increase_by(java.lang.Integer)
+ Quantity : 2
+Price : ₹ 17999
+Sub Total : ₹ 35998
+✅ Sub Total correctly calculated as ₹ 35998
+  Then Total Amount should be correctly calculated Price and SubTotal Amount                    # stepdefinations.CartSteps.total_amount_should_be_correctly_calculated_price_and_sub_total_amount()
+Total Amount: ₹ 35998
+Actual Total Amount : ₹ 35998
+Total price is correct
+  Then Total Amount should be correctly calculated                                              # stepdefinations.CartSteps.total_amount_should_be_correctly_calculated()
+  When User clicks on CONFIRM ORDER button                                                      # stepdefinations.CartSteps.user_clicks_on_confirm_order_button()
+  Then User clicks on Place ORDER button                                                        # stepdefinations.CartSteps.user_clicks_on_place_order_button()
+  Then Order confirmation process should be initiated                                           # stepdefinations.CartSteps.order_confirmation_process_should_be_initiated()
+Sridhar P, 8 min
+@TC86
+  Scenario: Via search functionality Verify Buy Button  and confirm the order
+    When User enters "Suits" in the search bar
+    And User submits the search
+    And User select the size from category
+    And User clicks on Buy Now Button
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    And User should see the product details like name, size, and price
+    And User should see the shipping address with name, address, and phone number
+    And User should see the price details including item price and shipping fee
+    Then Total Amount should be correctly calculated
+    When User clicks on CONFIRM ORDER button
+    Then User clicks on Place ORDER button
+    Then Order confirmation process should be initiated
+Scenario: Delete item from cart(Recently added item)
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    When User clicks on the "Delete" icon for a product
+    Then The product should be removed from the cart
+    And User should see a message "Your cart is empty"
+@TC81
+  Scenario: Delete item from cart (Recently added item)
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    When User clicks on the "Delete" icon for a product
+    Then The product should be removed from the cart
+    And User should see a message "Your cart is empty"
+
+  @TC82
+  Scenario: Via Shop Now Verify Shopping Cart page details and confirm the order
+    Then User should see banner with text MEN'S CLOTHING
+    And User should see SHOP NOW button
+    Then User should be redirects to New Arrivels Page
+    And User select the size from category
+    And User clicks on Add to Cart for a product
+    Then User sees an message as Item added to cart successfully
+    When User navigates to the Shopping Cart page
+    And User should see the price details including item price and shipping fee
+    Then Total Amount should be correctly calculated
+    When User clicks on CONFIRM ORDER button
+    Then User clicks on Place ORDER button
+    Then Order confirmation process should be initiated
+
+  @TC83
+  Scenario: Delete item from cart(Recently added item)
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    When User clicks on the "Delete" icon for a product
+    Then The product should be removed from the cart
+    And User should see a message "Your cart is empty"
+
+  @TC84
+  Scenario: Via Shop Now Verify Buy Button  and confirm the order
+    Then User should see banner with text MEN'S CLOTHING
+    And User should see SHOP NOW button
+    Then User should be redirects to New Arrivels Page
+    And User select the size from category
+    And User clicks on Buy Now Button
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    And User should see the product details like name, size, and price
+    And User should see the shipping address with name, address, and phone number
+    And User should see the price details including item price and shipping fee
+    Then Total Amount should be correctly calculated
+    When User clicks on CONFIRM ORDER button
+    Then User clicks on Place ORDER button
+    Then Order confirmation process should be initiated
+
+  @TC85
+  Scenario: Delete item from cart(Recently added item)
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    When User clicks on the "Delete" icon for a product
+    Then The product should be removed from the cart
+    And User should see a message "Your cart is empty"
+
+  @TC86
+  Scenario: Via search functionality Verify Buy Button  and confirm the order
+    When User enters "Suits" in the search bar
+    And User submits the search
+    And User select the size from category
+    And User clicks on Buy Now Button
+    When User navigates to the Shopping Cart page
+    Then User should see the Shopping Bag title
+    And User should see the product details like name, size, and price
+    And User should see the shipping address with name, address, and phone number
+    And User should see the price details including item price and shipping fee
+    Then Total Amount should be correctly calculated
+    When User clicks on CONFIRM ORDER button
+    Then User clicks on Place ORDER button
+    Then Order confirmation process should be initiated
+
+
+
+
+Feature: User Profile Menu Functionality
+
+	  Background: 
+	    Given User enters the "https://dev.bigshotonline.com/"
+	    When User MouseHover Account
+	    And User click on Login Button
+	    And User enters  valid Mailid as "sridharp@newmeksolutions.com"
+	    And User enters  valid Password as "Sridhar@1993"
+	    And User clicks the SignIn button
+	    When User hovers over the profile icon
+
+	  @TC42
+	  Scenario: Verifies dropdown options under User profile icon
+	    Then User Name should be visible
+	    Then User should see Account Details in the profile dropdown
+	    Then User should see Wishlist in the profile dropdown
+	    Then User should see Orders in the profile dropdown
+	    Then User should see Addresses in the profile dropdown
+	    Then User should see Logout in the profile dropdown
+
+	  @TC43
+	  Scenario: View Account Details via profile
+	    And User clicks on Account Details
+	    Then User should be redirected to the account details page with profile details
+
+	  @TC44
+	  Scenario: Update Profile Details Successfully
+	    And User clicks on Account Details
+	    And User enters Date of Birth "16/03/1993"
+	    And User clicks on the Country ProfileCode dropdown
+	    And User selects the ProfileCode option
+	    And User enter Alternative Mobile Number as "9963655039"
+	    And User uploads  Profile Image
+	    And User clicks on Save button
+	    Then User should see a success message as "Profile updated successfully"
+
+	  @TC45
+	  Scenario: Display error message for unsupported profile image upload format
+	    And User clicks on Account Details
+	    And User enters Date of Birth "16/03/1993"
+	    And User clicks on the Country ProfileCode dropdown
+	    And User selects the ProfileCode option
+	    And User enter Alternative Mobile Number as "9963655039"
+	    And attempts to upload a profile image in an unsupported format (e.g., .doc, .mp4, .mp3)
+	    And User clicks on Save button
+	    Then User should see a error message as "Invalid upload format. Please upload a valid image file."
+
+	  @TC46
+	  Scenario: Discard Profile Changes by Clicking Cancel under Profile Details page in Account details
+	    When User clicks on Account Details
+	    And User has made changes to the profile fields
+	    And User clicks on the Cancel button
+	    Then User should see a confirmation popup with message "Are you sure you want to discard the changes?"
+	    And User confirms to discard the changes
+	    Then All profile fields should revert to their previously saved values
+	    And User should remain on the Account Details page
+
+	  @TC47
+	  Scenario: Verify Cancel button under Profile Details page in Account details
+	    When User clicks on Account Details
+	    And User clicks on the Cancel button
+	    Then User should be redirects to the "Dashboard page".
+
+	  @TC48
+	  Scenario: View Wishlist Details via profile
+	    When User clicks on Wishlist
+	    Then User should be redirected to the Wishlist page
+	    And User should see the list of saved products
+
+	  @TC49
+	  Scenario: View Orders Details via profile
+	    When User clicks on Orders
+	    Then User should be redirected to the Orders page
+	    And User should see a list of past orders
+
+	  @TC50
+	  Scenario: Validate Cancel Button when submitting empty address form
+	    When User clicks on Addresses
+	    Then User should be redirected to the Saved Address page
+	    And User click on add new adderss link.
+	    Then User should be redirected to the Add New Address page
+	    And Click on Cancel Button
+	    Then User should be redirected to the Saved Address page
+
+	  @TC51
+	  Scenario: Validate with Empty Required Fields
+	    When User clicks on Addresses
+	    And User click on add new adderss link.
+	    And Click on Save Button on Add New Address page
+	    Then User sees an error message for email section "Enter Email Address"
+
+	  @TC52
+	  Scenario: Verify email field validation when required fields are partially filled
+	    When User clicks on Addresses
+	    And User click on add new adderss link.
+	    Then User should be redirected to the Add New Address page
+	    And User enters Name as ""
+	    And User clicks on the Country dropdown
+	    And User selects the Country
+	    And User search the State "Tel"
+	    And User select the sate
+	    And User enters City as "Rajeevnagar"
+	    And User enters Pincode as "500045"
+	    And User enters Address as "102/b"
+	    And User clicks on the Country Code
+	    And User selects the Country Code
+	    And User enters Phone No as "9951129168"
+	    And User selects the Save Adderss As Radio button
+	    And User selects the Make this my deafult address
+	    And Click on Save Button on Add New Address page
+	    Then User sees an error message for email section "Enter Email Address"
+
+	  @TC53
+	  Scenario: Save a new address successfully
+	    When User clicks on Addresses
+	    And User click on add new adderss link.
+	    Then User should be redirected to the Add New Address page
+	    And User enters Name as "srinu"
+	    And User clicks on the Country dropdown
+	    And User selects the Country
+	    And User search the State "Te"
+	    And User select the sate
+	    And User enters City as "Rajeevnagar"
+	    And User enters Pincode as "500046"
+	    And User enters Address as "102/b"
+	    And User clicks on the Country Code
+	    And User selects the Country Code
+	    And User enters Phone No as "9951829169"
+	    And User selects the Save Adderss As Radio button
+	    And User selects the Make this my deafult address
+	    And Click on Save Button on Add New Address page
+	    Then User sees an success message "Your address has been added successfully."
+	    Then Click on Ok Button
+
+	  @TC54
+	  Scenario: Verify Address Details via profile
+	    When User clicks on Addresses
+	    Then User should be redirected to the Saved Address page
+	    And User should see a list of saved shipping addresses
+
+	  @TC55
+	  Scenario: Edit an address and cancel without saving
+	    When User clicks on Addresses
+	    And User clicks on the Edit button for an existing address
+	    Then User should be redirected to the Edit Address page
+	    And User  Update Name as "ramyaaa"
+	    And Click on Cancel Button
+	    Then User should be redirected to the Saved Address page
+	    And the address details should remain unchanged
+
+	  @TC56
+	  Scenario: Edit an existing saved address
+	    When User clicks on Addresses
+	    And User clicks on the Edit button for an existing address
+	    Then User should be redirected to the Edit Address page
+	    And User  Update Name as "nareshdubbakas"
+	    And Click on Save Button on Add New Address page
+	    Then User sees an update success message "Your address has been updated."
+	    Then Click on Ok Button
+	    And Edited address should in be address list
+
+	  @TC57
+	  Scenario: Cancel address removal from confirmation popup
+	    When User clicks on Addresses
+	    And User clicks on the Remove button for an existing address
+	    Then a confirmation popup should appear with message "Are you sure you want to remove this address?"
+	    When User cancels deletion by clicking "No"
+	    And the address should remain in the address list
+
+	  @TC58
+	  Scenario: Remove an existing saved address
+	    When User clicks on Addresses
+	    And User clicks on the Remove button for an existing address
+	    Then a confirmation popup should appear with message "Are you sure you want to remove this address?"
+	    When User confirms deletion by clicking "Yes"
+	    And User should see a success message "Your address has been removed."
+	    Then Click on Ok Button on Conformation Pop up
+
+	  @TC59
+	  Scenario: Logout from Profile Menu Details via profile
+	    When User clicks on Logout button
+	    And User hovers over the profile icon
